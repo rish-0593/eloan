@@ -35,6 +35,10 @@
                     orderable: false,
                 },
                 {
+                    data: 'purpose_of_loan',
+                    orderable: false,
+                },
+                {
                     name: 'action',
                     data: function ( d ) {
                         return `<a href="javascript:void(0);"><i class="fas fa-edit" style="font-size: 15px;"></i></a>`;

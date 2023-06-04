@@ -172,32 +172,33 @@
                             </div>
                         </div>
                         <div class="col-lg-12 col-xl-5">
-                            <form action="#" id="loan-calculator" class="about-one__form wow fadeInUp" data-wow-duration="1500ms">
+                            <form method="POST" action="{{ route('registration') }}" id="loan-calculator" class="about-one__form wow fadeInUp" data-wow-duration="1500ms">
+                                @csrf
                                 <h3>Basic Details</h3>
                                 <div class="about-one__form-content">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Full Name</label>
-                                                <input type="text" name="yourname" class="form-control contact-one__form-input" placeholder="Full Name" required="" fdprocessedid="zwe4jp3">
+                                                <input type="text" name="name" class="form-control contact-one__form-input" placeholder="Full Name" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Email*</label>
-                                                <input type="email" name="your-email" class="form-control contact-one__form-input" placeholder="Your Email" required="" fdprocessedid="kt26p7">
+                                                <input type="email" name="email" class="form-control contact-one__form-input" placeholder="Your Email" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Phone*</label>
-                                                <input type="email" name="your-email" class="form-control contact-one__form-input" placeholder="Your Email" required="" fdprocessedid="kt26p7">
+                                                <label>Mobile Number*</label>
+                                                <input type="tel" name="mobile" class="form-control contact-one__form-input" placeholder="Mobile Number" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Purpose of Loan</label>
-                                                <select name="purposeloan" class="contact-one__form-input custom-select" required="" fdprocessedid="z5681o">
+                                                <select name="purpose_of_loan" class="contact-one__form-input custom-select" required="">
                                                     <option value="Personal">Personal</option>
                                                     <option value="Education">Education</option>
                                                     <option value="Business">Business</option>
@@ -207,7 +208,7 @@
                                         </div>
                                     </div>
 
-                                    <a href="{{ route('apply.for.loan') }}" class="thm-btn">Apply For Loan</a>
+                                    <button type="submit" class="thm-btn">Apply For Loan</button>
                                 </div>
                             </form>
                         </div>

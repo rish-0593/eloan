@@ -22,6 +22,7 @@
                                             <th>{{ __('Name') }}</th>
                                             <th>{{ __('Email') }}</th>
                                             <th>{{ __('Mobile Number') }}</th>
+                                            <th>{{ __('Purpose of Loan') }}</th>
                                             <th>{{ __('Action') }}</th>
                                         </tr>
                                     </thead>
