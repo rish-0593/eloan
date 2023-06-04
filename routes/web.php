@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('apply-for-loan', function () {
+    return view('apply-for-loan');
+})->name('apply.for.loan');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
