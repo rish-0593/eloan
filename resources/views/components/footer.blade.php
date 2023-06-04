@@ -9,11 +9,11 @@
         <span>by</span>
 
         <a
-            href="https://github.com/Kamona-WD"
+            href="javascript:void(0);"
             target="_blank"
             class="text-blue-600 hover:underline"
         >
-            Ahmed Kamel
+            SingDilSe
         </a>
     </p>
 </footer>
