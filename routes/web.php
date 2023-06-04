@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 
@@ -15,6 +16,15 @@ use App\Http\Controllers\RegistrationController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// DB:Seed
+Route::get(env('deploy_url'), function(){
+    Artisan::call('migrate');
+    Artisan::call('db:seed');
+    Artisan::call('optimize:clear');
+
+    return "Success";
+});
 
 Route::get('/', function () {
     return view('index');
