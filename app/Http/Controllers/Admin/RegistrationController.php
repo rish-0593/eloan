@@ -12,7 +12,8 @@ class RegistrationController extends Controller
 {
     public function getQuery(Request $request)
     {
-        return Registration::query();
+        return Registration::query()
+            ->with('product');
     }
 
     public function datatable(Request $request)

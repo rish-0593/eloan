@@ -22,6 +22,7 @@
 
         <!-- template styles -->
         <link rel="stylesheet" href="{{ asset('css/frontend/main.css') }}">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     </head>
     <body>
         <div class="preloader">
@@ -103,107 +104,61 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="feature-two">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-duration="1500ms">
-                                        <div class="feature-two__box">
-                                            <i class="pylon-icon-consumer-behavior"></i>
-                                            <p>Quick Payment
-                                                Process</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-duration="1500ms">
-                                        <div class="feature-two__box">
-                                            <i class="pylon-icon-point-of-sale"></i>
-                                            <p>No Prepayment
-                                                Fees</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section class="about-one">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12 col-xl-7">
-                            <div class="about-one__content">
-                                <div class="block-title text-left">
-                                    <p>Company Introductions</p>
-                                    <h2>Our Loans will Fill Your Dreams Come True</h2>
-                                </div>
-                                <p>There are many variations of passages of lorem ipsum available the majority have suffered alteration in some form by injected humour. Duis aute irure dolor lipsum is simply free text available in the local markets in reprehenderit.Nam aliquam sem et tortor consequat mattis pellentesque semper tailored for specific uses and specific market segment.</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="feature-four__box text-left">
-                                        <div class="feature-four__box-inner">
-
-                                        <div class="feature-four__box-icon"><i class="flaticon flaticon-property-1"></i></div>
-                                            <div class="feature-four__box-right">
-                                                <h3>
-                                                    Award Winning
-                                                </h3>
-                                                <p>Finance categories winning more than 10 awards</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="feature-four__box text-left">
-                                        <div class="feature-four__box-inner">
-                                        <div class="feature-four__box-icon"><i class="flaticon flaticon-growth-1"></i></div>
-                                            <div class="feature-four__box-right">
-                                                <h3>
-                                                    Certified Company
-                                                </h3>
-                                                <p>Approved Finance company to provide loans</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-5">
-                            <form method="POST" action="{{ route('registration') }}" id="loan-calculator" class="about-one__form wow fadeInUp" data-wow-duration="1500ms">
+                        <div class="col-lg-12 col-xl-2"></div>
+                        <div class="col-lg-12 col-xl-8">
+                            <form method="POST" action="{{ route('registration') }}" id="loan-module" class="about-one__form wow fadeInUp" data-wow-duration="1500ms">
                                 @csrf
                                 <h3>Basic Details</h3>
                                 <div class="about-one__form-content">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Full Name</label>
-                                                <input type="text" name="name" class="form-control contact-one__form-input" placeholder="Full Name" required="">
+                                                <label>Select Product</label>
+                                                <select name="product" class="contact-one__form-input custom-select" required="">
+                                                    @foreach ($products ?? [] as $product)
+                                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Email*</label>
-                                                <input type="email" name="email" class="form-control contact-one__form-input" placeholder="Your Email" required="">
+                                                <label>Name</label>
+                                                <input type="text" name="name" id="name" maxlength="100" class="form-control contact-one__form-input" placeholder="Name" required="">
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Mobile Number*</label>
-                                                <input type="tel" name="mobile" class="form-control contact-one__form-input" placeholder="Mobile Number" required="">
+                                                <input type="text" name="mobile" id="mobile" minlength="10" pattern="[3-9]{10}" maxlength="10" class="form-control contact-one__form-input" placeholder="Mobile Number" required="">
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Purpose of Loan</label>
-                                                <select name="purpose_of_loan" class="contact-one__form-input custom-select" required="">
-                                                    <option value="Personal">Personal</option>
-                                                    <option value="Education">Education</option>
-                                                    <option value="Business">Business</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
+                                                <label>City*</label>
+                                                <input type="text" name="city" id="city" class="form-control contact-one__form-input" placeholder="Your City" required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Pincode*</label>
+                                                <input type="text" name="pincode" id="pincode" minlength="6" pattern="[3-9]{10}" maxlength="6" class="form-control contact-one__form-input" placeholder="Pincode" required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Loan Amount*</label>
+                                                <input type="text" name="amount" id="amount" minlength="5" pattern="[3-9]{10}" maxlength="10" class="form-control contact-one__form-input" placeholder="Loan Amount" required="">
                                             </div>
                                         </div>
                                     </div>
@@ -212,6 +167,7 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="col-lg-12 col-xl-2"></div>
                     </div>
                 </div>
             </section>
@@ -371,7 +327,7 @@
                         <h3>Get a Business Loans Quickly</h3>
                     </div>
                     <div class="right-content">
-                        <a href="apply-now.html" class="thm-btn">Apply For Loan</a><!-- /.thm-btn -->
+                        <a href="javascript:void(0);" class="thm-btn" id="goto-apply-for-loan">Apply For Loan</a>
                     </div>
                 </div>
             </section>
@@ -478,8 +434,84 @@
         <script src="{{ asset('js/frontend/odometer.min.js') }}"></script>
         <script src="{{ asset('js/frontend/jquery.appear.min.js') }}"></script>
         <script src="{{ asset('js/frontend/wNumb.min.js') }}"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
         <!-- template js -->
         <script src="{{ asset('js/frontend/theme.js') }}"></script>
+
+        <script type="text/javascript">
+            // Restricts input for the given textbox to the given inputFilter function.
+            function setInputFilter(textbox, inputFilter) {
+                ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+                    textbox.addEventListener(event, function() {
+                        if (inputFilter(this.value)) {
+                            this.oldValue = this.value;
+                            this.oldSelectionStart = this.selectionStart;
+                            this.oldSelectionEnd = this.selectionEnd;
+                        } else if (this.hasOwnProperty("oldValue")) {
+                            this.value = this.oldValue;
+                            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                        } else {
+                            this.value = "";
+                        }
+                    });
+                });
+            }
+
+            setInputFilter(document.getElementById("mobile"), function(value) {
+                return /^\d*$/.test(value);
+            });
+
+            setInputFilter(document.getElementById("pincode"), function(value) {
+                return /^\d*$/.test(value);
+            });
+
+            setInputFilter(document.getElementById("amount"), function(value) {
+                return /^\d*$/.test(value);
+            });
+        </script>
+
+        <script>
+            $(window).bind("pageshow", function() {
+                var form = $('#loan-module');
+                form[0].reset();
+            });
+
+            $(document).ready(function() {
+                $("#city").autocomplete({
+                    source: @json($cities ?? [])
+                });
+
+                $(document).on('click', '#goto-apply-for-loan', function() {
+                    console.log('Application');
+                    const element = document.getElementById("loan-module");
+                    element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+                });
+
+                $("#loan-module").validate({
+                    rules: {
+                        product: {
+                            required: true,
+                        },
+                        name: {
+                            required: true,
+                        },
+                        mobile: {
+                            required: true,
+                        },
+                        city: {
+                            required: true,
+                        },
+                        pincode: {
+                            required: true,
+                        },
+                        amount: {
+                            required: true,
+                        }
+                    }
+                })
+            });
+        </script>
     </body>
 </html>

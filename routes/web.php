@@ -26,15 +26,11 @@ Route::get(env('deploy_url'), function(){
     return "Success";
 });
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::post('registration', [RegistrationController::class, 'register'])->name('registration');
-
-Route::get('apply-for-loan', function () {
-    return view('apply-for-loan');
-})->name('apply.for.loan');
+Route::get('/', [RegistrationController::class, 'index'])->name('index');
+Route::post('/', [RegistrationController::class, 'register'])->name('registration');
+Route::get('apply-for-loan', [RegistrationController::class, 'applyForLoan'])->name('apply.for.loan');
+Route::post('apply-for-loan', [RegistrationController::class, 'submit'])->name('apply.for.loan.submit');
+Route::get('thank-you', [RegistrationController::class, 'thankYou'])->name('thank.you');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

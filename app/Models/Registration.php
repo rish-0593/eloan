@@ -10,9 +10,16 @@ class Registration extends Model
     use HasFactory;
 
     protected $fillable = [
+        'product_id',
         'name',
-        'email',
         'mobile',
-        'purpose_of_loan',
+        'city',
+        'pincode',
+        'amount',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

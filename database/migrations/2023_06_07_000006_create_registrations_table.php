@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('product_id');
             $table->string('name');
-            $table->string('email');
             $table->string('mobile');
-            $table->string('purpose_of_loan');
+            $table->string('city');
+            $table->string('pincode');
+            $table->string('amount');
             $table->timestamps();
         });
     }

@@ -15,14 +15,16 @@
                             @include('admin.registration.filters')
 
                             <div class="table-responsive">
-                                <table id="example" class="table table-striped display" style="width:100%">
+                                <table id="registration" class="table table-striped display" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>{{ __('ID') }}</th>
                                             <th>{{ __('Name') }}</th>
-                                            <th>{{ __('Email') }}</th>
                                             <th>{{ __('Mobile Number') }}</th>
-                                            <th>{{ __('Purpose of Loan') }}</th>
+                                            <th>{{ __('City') }}</th>
+                                            <th>{{ __('Product') }}</th>
+                                            <th>{{ __('Pincode') }}</th>
+                                            <th>{{ __('Loan Amount') }}</th>
                                             <th>{{ __('Action') }}</th>
                                         </tr>
                                     </thead>
@@ -40,6 +42,7 @@
             const DATATABLE_URL = "{{ route('admin.registration.index') }}"
         </script>
 
+        @includeIf('admin.registration.datatable')
         @include('admin.registration.script')
     </x-slot>
 </x-admin-layout>
