@@ -19,6 +19,44 @@
                 </a>
             </li>
 
+            <li class="menu-header">Others</li>
+            <li class="dropdown">
+                <a href="{{ route('admin.product.index') }}" class="nav-link">
+                    <i data-feather="monitor"></i><span>Product</span>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="{{ route('admin.city.index') }}" class="nav-link">
+                    <i data-feather="monitor"></i><span>City</span>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="{{ route('admin.employment.status.index') }}" class="nav-link">
+                    <i data-feather="monitor"></i><span>Employment Status</span>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="{{ route('admin.gender.index') }}" class="nav-link">
+                    <i data-feather="monitor"></i><span>Gender</span>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="{{ route('admin.marital.status.index') }}" class="nav-link">
+                    <i data-feather="monitor"></i><span>Marital Status</span>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="{{ route('admin.residential.type.index') }}" class="nav-link">
+                    <i data-feather="monitor"></i><span>Residential Type</span>
+                </a>
+            </li>
+
+
             <br><br><br><br><br>
         </ul>
     </aside>
