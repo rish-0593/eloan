@@ -20,16 +20,14 @@
                         <i data-feather="monitor"></i><span>Support Team</span>
                     </a>
                 </li>
-            @endcan
 
-            <li class="menu-header">Registrations</li>
-            <li class="dropdown">
-                <a href="{{ route('admin.registration.index') }}" class="nav-link">
-                    <i data-feather="monitor"></i><span>Registrations</span>
-                </a>
-            </li>
+                <li class="menu-header">Registrations</li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.registration.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Registrations</span>
+                    </a>
+                </li>
 
-            @can('admin')
                 <li class="menu-header">Others</li>
                 <li class="dropdown">
                     <a href="{{ route('admin.product.index') }}" class="nav-link">
@@ -64,6 +62,21 @@
                 <li class="dropdown">
                     <a href="{{ route('admin.residential.type.index') }}" class="nav-link">
                         <i data-feather="monitor"></i><span>Residential Type</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('support')
+                <li class="dropdown">
+                    <a href="{{ route('admin.status.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Status</span>
+                    </a>
+                </li>
+
+                <li class="menu-header">Registrations</li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.registration.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Registrations</span>
                     </a>
                 </li>
             @endcan

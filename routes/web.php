@@ -98,6 +98,13 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\RegistrationController::class, 'index'])->name('index');
         Route::post('assign-to-user', [Admin\RegistrationController::class, 'assignToUser'])->name('assign.to.user');
     });
+
+    Route::prefix('status')->name('status.')->group(function () {
+        Route::match(['get', 'post'], '/', [Admin\StatusController::class, 'index'])->name('index');
+        Route::post('add-or-update', [Admin\StatusController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('trash', [Admin\StatusController::class, 'trash'])->name('trash');
+        Route::post('update-status', [Admin\StatusController::class, 'updateStatus'])->name('update.status');
+    });
 });
 
 require __DIR__.'/auth.php';
