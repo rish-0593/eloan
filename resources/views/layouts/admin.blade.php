@@ -57,6 +57,26 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        $(document).ready(function() {
+            $(document).on('change', '[checkbox-all]', function(){
+                $('#assign_to').val('').trigger('change');
+
+                let checked = this.checked;
+
+                $('input[checkbox-single]').each(function(){
+                    this.checked = checked;
+                });
+            });
+
+            $(document).on('change', 'input[checkbox-single]', function(){
+                $('#assign_to').val('').trigger('change');
+
+                let checked = $('input[checkbox-single]:checked').length == $('input[checkbox-single]').length;
+
+                $('[checkbox-all]').prop('checked', checked);
+            });
+        });
     </script>
 
     {{ $scripts ?? '' }}

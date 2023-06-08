@@ -22,4 +22,9 @@ class Registration extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function supportHasRegistration()
+    {
+        return $this->hasOne(SupportHasRegistration::class);
+    }
 }

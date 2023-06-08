@@ -13,6 +13,14 @@
                 </a>
             </li>
 
+            <li class="menu-header">Team</li>
+            <li class="dropdown">
+                <a href="{{ route('admin.team.index', ['support']) }}" class="nav-link">
+                    <i data-feather="monitor"></i><span>Support Team</span>
+                </a>
+            </li>
+
+            <li class="menu-header">Registrations</li>
             <li class="dropdown">
                 <a href="{{ route('admin.registration.index') }}" class="nav-link">
                     <i data-feather="monitor"></i><span>Registrations</span>

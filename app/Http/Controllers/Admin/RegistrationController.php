@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Actions\Datatable;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Models\SupportHasRegistration;
 use App\Http\Resources\Admin\RegistrationResource;
 
 class RegistrationController extends Controller
 {
     public function getQuery(Request $request)
     {
+        $user = Auth::user();
+
         return Registration::query()
+            ->when($user->can('admin'), function($q){
+                $q->doesntHave('supportHasRegistration');
+            })
             ->with('product');
     }
 
@@ -43,6 +51,23 @@ class RegistrationController extends Controller
             return $this->datatable($request);
         }
 
-        return view('admin.registration.index');
+        $users = User::active()->role('support')->get();
+
+        return view('admin.registration.index', compact('users'));
+    }
+
+    public function assignToUser(Request $request)
+    {
+        $user_id = $request->user_id;
+        $ids = $request->ids;
+
+        foreach ($ids as $id) {
+            SupportHasRegistration::create([
+                'user_id' => $user_id,
+                'registration_id' => $id,
+            ]);
+        }
+
+        return 1;
     }
 }

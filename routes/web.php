@@ -94,7 +94,10 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         Route::post('{role}/update-password', [Admin\TeamController::class, 'updatePassword'])->name('update.password');
     });
 
-    Route::match(['get', 'post'], 'registration', [Admin\RegistrationController::class, 'index'])->name('registration.index');
+    Route::prefix('registration')->name('registration.')->group(function () {
+        Route::match(['get', 'post'], '/', [Admin\RegistrationController::class, 'index'])->name('index');
+        Route::post('assign-to-user', [Admin\RegistrationController::class, 'assignToUser'])->name('assign.to.user');
+    });
 });
 
 require __DIR__.'/auth.php';

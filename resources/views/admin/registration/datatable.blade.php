@@ -19,6 +19,15 @@
             },
             columns: [
                 {
+                    name: '',
+                    data: function(d) {
+                        return `
+                            <input type="checkbox" name="registration_id" value="${d.id}" checkbox-single>
+                        `;
+                    },
+                    orderable: false
+                },
+                {
                     data: 'id',
                     orderable: false
                 },

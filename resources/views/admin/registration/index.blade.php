@@ -18,6 +18,7 @@
                                 <table id="registration" class="table table-striped display" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th><input type="checkbox" checkbox-all></th>
                                             <th>{{ __('ID') }}</th>
                                             <th>{{ __('Name') }}</th>
                                             <th>{{ __('Mobile Number') }}</th>
@@ -39,10 +40,11 @@
 
     <x-slot name="scripts">
         <script>
-            const DATATABLE_URL = "{{ route('admin.registration.index') }}"
+            const DATATABLE_URL = `{{ route('admin.registration.index') }}`;
+            const ASSIGN_TO_USER_URL = `{{ route('admin.registration.assign.to.user') }}`;
         </script>
 
         @includeIf('admin.registration.datatable')
-        @include('admin.registration.script')
+        @include('admin.registration.scripts')
     </x-slot>
 </x-admin-layout>
