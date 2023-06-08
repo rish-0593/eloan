@@ -13,12 +13,14 @@
                 </a>
             </li>
 
-            <li class="menu-header">Team</li>
-            <li class="dropdown">
-                <a href="{{ route('admin.team.index', ['support']) }}" class="nav-link">
-                    <i data-feather="monitor"></i><span>Support Team</span>
-                </a>
-            </li>
+            @can('admin')
+                <li class="menu-header">Team</li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.team.index', ['support']) }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Support Team</span>
+                    </a>
+                </li>
+            @endcan
 
             <li class="menu-header">Registrations</li>
             <li class="dropdown">
@@ -27,42 +29,44 @@
                 </a>
             </li>
 
-            <li class="menu-header">Others</li>
-            <li class="dropdown">
-                <a href="{{ route('admin.product.index') }}" class="nav-link">
-                    <i data-feather="monitor"></i><span>Product</span>
-                </a>
-            </li>
+            @can('admin')
+                <li class="menu-header">Others</li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.product.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Product</span>
+                    </a>
+                </li>
 
-            <li class="dropdown">
-                <a href="{{ route('admin.city.index') }}" class="nav-link">
-                    <i data-feather="monitor"></i><span>City</span>
-                </a>
-            </li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.city.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>City</span>
+                    </a>
+                </li>
 
-            <li class="dropdown">
-                <a href="{{ route('admin.employment.status.index') }}" class="nav-link">
-                    <i data-feather="monitor"></i><span>Employment Status</span>
-                </a>
-            </li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.employment.status.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Employment Status</span>
+                    </a>
+                </li>
 
-            <li class="dropdown">
-                <a href="{{ route('admin.gender.index') }}" class="nav-link">
-                    <i data-feather="monitor"></i><span>Gender</span>
-                </a>
-            </li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.gender.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Gender</span>
+                    </a>
+                </li>
 
-            <li class="dropdown">
-                <a href="{{ route('admin.marital.status.index') }}" class="nav-link">
-                    <i data-feather="monitor"></i><span>Marital Status</span>
-                </a>
-            </li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.marital.status.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Marital Status</span>
+                    </a>
+                </li>
 
-            <li class="dropdown">
-                <a href="{{ route('admin.residential.type.index') }}" class="nav-link">
-                    <i data-feather="monitor"></i><span>Residential Type</span>
-                </a>
-            </li>
+                <li class="dropdown">
+                    <a href="{{ route('admin.residential.type.index') }}" class="nav-link">
+                        <i data-feather="monitor"></i><span>Residential Type</span>
+                    </a>
+                </li>
+            @endcan
 
 
             <br><br><br><br><br>

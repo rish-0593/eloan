@@ -20,6 +20,8 @@ class RegistrationController extends Controller
         return Registration::query()
             ->when($user->can('admin'), function($q){
                 $q->doesntHave('supportHasRegistration');
+            }, function($q) use ($user) {
+                $q->whereRelation('supportHasRegistration', 'user_id', $user->id);
             })
             ->with('product');
     }
