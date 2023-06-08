@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::prefix('product')->name('product.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\ProductController::class, 'index'])->name('index');
@@ -83,6 +85,13 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         Route::post('status/add-or-update', [Admin\ResidentialTypeController::class, 'addOrUpdate'])->name('add.or.update');
         Route::post('status/trash', [Admin\ResidentialTypeController::class, 'trash'])->name('trash');
         Route::post('status/update-status', [Admin\ResidentialTypeController::class, 'updateStatus'])->name('update.status');
+    });
+
+    Route::prefix('team')->name('team.')->group(function () {
+        Route::match(['get', 'post'], '{role}', [Admin\TeamController::class, 'index'])->name('index');
+        Route::post('{role}/add-or-update', [Admin\TeamController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('{role}/update-status', [Admin\TeamController::class, 'updateStatus'])->name('update.status');
+        Route::post('{role}/update-password', [Admin\TeamController::class, 'updatePassword'])->name('update.password');
     });
 
     Route::match(['get', 'post'], 'registration', [Admin\RegistrationController::class, 'index'])->name('registration.index');
