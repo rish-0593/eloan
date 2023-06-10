@@ -64,14 +64,23 @@ class RegistrationController extends Controller
         $user_id = $request->user_id;
         $ids = $request->ids;
 
-        foreach ($ids as $id) {
-            SupportHasRegistration::create([
-                'user_id' => $user_id,
-                'registration_id' => $id,
-            ]);
+        if($user_id == 0){
+            SupportHasRegistration::whereIn('registration_id', $ids)->delete();
+        }
+        else{
+            foreach ($ids as $id) {
+                SupportHasRegistration::updateOrCreate(
+                    [
+                        'registration_id' => $id,
+                    ],
+                    [
+                        'user_id' => $user_id,
+                    ]
+                );
+            }
         }
 
-        return 1;
+        return true;
     }
 
     public function view(Request $request, $id)
