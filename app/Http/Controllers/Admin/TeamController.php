@@ -8,7 +8,9 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use App\Http\Resources\Admin\TeamResource;
 
 class TeamController extends Controller
@@ -83,5 +85,18 @@ class TeamController extends Controller
         User::find($request->id)->update($data);
 
         return true;
+    }
+
+    public function loginByUser(Request $request)
+    {
+        if(auth()->user()->can('admin')){
+            $id = $request->id;
+
+            Auth::user()->impersonate(User::find($id));
+
+            return redirect(RouteServiceProvider::HOME);
+        }
+
+        abort(403);
     }
 }

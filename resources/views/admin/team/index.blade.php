@@ -46,6 +46,7 @@
         <script>
             const datatable_url = `{{ route('admin.team.index', [$role]) }}`;
             const update_status_url = `{{ route('admin.team.update.status', [$role]) }}`;
+            const LOGIN_BY_USER_URL = `{{ route('admin.team.login.by.user', [$role]) }}`;
         </script>
 
         @includeIf('admin.team.datatable')

@@ -60,5 +60,10 @@
                 console.log( "error" );
             });
         });
+
+        $(document).on('click', '[data-login]', function(){
+            let id = $(this).data('login');
+            window.location.href = `${LOGIN_BY_USER_URL}?id=${id}`;
+        });
     });
 </script>
