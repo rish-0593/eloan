@@ -38,7 +38,9 @@
                     name: 'data',
                     data: function (d){
                         return `
-                            <span>--</span><br>
+                            <span>No. of Pendings: ${d.pending_count}</span><br>
+                            <span>No. of Completed: ${d.completed_count}</span><br>
+                            <span>Total Data Assigned: ${d.total_count}</span>
                         `;
                     },
                     orderable: false
@@ -47,7 +49,7 @@
                     name: 'last-activity',
                     data: function (d){
                         return `
-                            <span>--</span><br>
+                            <span>${d.last_activity}</span><br>
                         `;
                     },
                     orderable: false

@@ -15,6 +15,7 @@
                 data: function ( d ) {
                     d._token = "{{ csrf_token() }}";
                     d.search = '';
+                    d.status = `{{ request()->status ?? ''}}`;
                 },
             },
             columns: [
@@ -55,6 +56,23 @@
                     data: 'amount',
                     orderable: false,
                 },
+                @can('support')
+                    {
+                        name: 'status',
+                        data: function ( d ) {
+                            let html = `
+                                <select class="form-control" data-assign-status="${d.id}">
+                                    <option value="">Select Status</option>
+                                    ${mapStatusOptions(statuses, d.status_id)}
+                                </select>
+                                <div class="text-center">(<span class="text-muted">${d.status_updated_at}</span>)</div>
+                            `;
+
+                            return html;
+                        },
+                        orderable: false,
+                    },
+                @endcan
                 {
                     name: 'action',
                     data: function ( d ) {
@@ -67,4 +85,16 @@
 
         return datatable;
     };
+
+    function mapStatusOptions(statuses, status) {
+        let options = '';
+
+        $.each(statuses, function(index, value) {
+            if(status != value.id){
+                options += `<option value="${value.id}">${value.name}</option>`
+            }
+        });
+
+        return options;
+    }
 </script>

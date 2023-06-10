@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\SupportHasRegistration;
 use App\Http\Resources\Admin\RegistrationResource;
+use App\Models\Status;
+use Carbon\Carbon;
 
 class RegistrationController extends Controller
 {
@@ -19,10 +21,18 @@ class RegistrationController extends Controller
         $user = Auth::user();
 
         return Registration::query()
+            ->with('supportHasRegistration')
             ->when($user->can('admin'), function($q){
                 $q->doesntHave('supportHasRegistration');
-            }, function($q) use ($user) {
-                $q->whereRelation('supportHasRegistration', 'user_id', $user->id);
+            }, function($q) use ($user, $request) {
+                $q->whereHas('supportHasRegistration', function($q) use ($user, $request) {
+                    $q->where('user_id', $user->id)
+                    ->when(!blank($status = $request->status), function($q) use ($status) {
+                        $q->where('status_id', Crypt::decrypt($status));
+                    }, function($q) {
+                        $q->whereNull('status_id');
+                    });
+                });
             })
             ->with('product');
     }
@@ -55,8 +65,9 @@ class RegistrationController extends Controller
         }
 
         $users = User::active()->role('support')->get();
+        $statuses = Status::active()->get();
 
-        return view('admin.registration.index', compact('users'));
+        return view('admin.registration.index', compact('users', 'statuses'));
     }
 
     public function assignToUser(Request $request)
@@ -97,5 +108,23 @@ class RegistrationController extends Controller
         // return $view;
 
         return view('admin.registration.view', compact('view'));
+    }
+
+    public function assignStatus(Request $request)
+    {
+        $registration_id = $request->_registration;
+        $status_id = $request->_status;
+
+        SupportHasRegistration::updateOrCreate(
+            [
+                'registration_id' => $registration_id,
+            ],
+            [
+                'status_id' => $status_id,
+                'status_updated_at' => Carbon::now(),
+            ]
+        );
+
+        return true;
     }
 }

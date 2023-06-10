@@ -49,5 +49,27 @@
                 }
             });
         }
+
+        if(typeof ASSIGN_TO_USER_STATUS_URL != 'undefined'){
+            $(document).on('change', 'select[data-assign-status]', function(){
+                let _registration = $(this).data('assign-status');
+                let _status = $(this).val();
+
+                if(_registration != '' && _status != ''){
+                    $.ajax({
+                        url: ASSIGN_TO_USER_STATUS_URL,
+                        type: 'POST',
+                        data: {
+                            _registration,
+                            _status
+                        },
+                        success: function(response) {
+                            datatable.ajax.reload();
+                        },
+                        error: function(error) {}
+                    });
+                }
+            });
+        }
     });
 </script>

@@ -13,5 +13,6 @@ class SupportHasRegistration extends Model
         'user_id',
         'registration_id',
         'status_id',
+        'status_updated_at',
     ];
 }

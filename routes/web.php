@@ -92,14 +92,15 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         Route::post('{role}/add-or-update', [Admin\TeamController::class, 'addOrUpdate'])->name('add.or.update');
         Route::post('{role}/update-status', [Admin\TeamController::class, 'updateStatus'])->name('update.status');
         Route::post('{role}/update-password', [Admin\TeamController::class, 'updatePassword'])->name('update.password');
-
-        Route::match(['get'], '{role}/login-by-user', [Admin\TeamController::class, 'loginByUser'])->name('login.by.user');
+        Route::get('{role}/login-by-user', [Admin\TeamController::class, 'loginByUser'])->name('login.by.user');
     });
 
     Route::prefix('registration')->name('registration.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\RegistrationController::class, 'index'])->name('index');
         Route::get('view/{id}', [Admin\RegistrationController::class, 'view'])->name('view');
         Route::post('assign-to-user', [Admin\RegistrationController::class, 'assignToUser'])->name('assign.to.user');
+        Route::post('assign-status', [Admin\RegistrationController::class, 'assignStatus'])->name('assign.status');
+        Route::get('status/{status}', [Admin\RegistrationController::class, 'index'])->name('status');
     });
 
     Route::prefix('status')->name('status.')->group(function () {

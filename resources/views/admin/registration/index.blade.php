@@ -26,6 +26,9 @@
                                             <th>{{ __('Product') }}</th>
                                             <th>{{ __('Pincode') }}</th>
                                             <th>{{ __('Loan Amount') }}</th>
+                                            @can('support')
+                                                <th>{{ __('Status') }}</th>
+                                            @endcan
                                             <th>{{ __('Action') }}</th>
                                         </tr>
                                     </thead>
@@ -42,6 +45,8 @@
         <script>
             const DATATABLE_URL = `{{ route('admin.registration.index') }}`;
             const ASSIGN_TO_USER_URL = `{{ route('admin.registration.assign.to.user') }}`;
+            const statuses = @json($statuses ?? []);
+            const ASSIGN_TO_USER_STATUS_URL = `{{ route('admin.registration.assign.status') }}`;
         </script>
 
         @includeIf('admin.registration.datatable')

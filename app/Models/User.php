@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Lab404\Impersonate\Models\Impersonate;
 use Lab404\Impersonate\Services\ImpersonateManager;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -65,5 +67,21 @@ class User extends Authenticatable
     public function scopeActive(Builder $query): Builder
     {
         return $query->where('status', 1);
+    }
+
+    function supportStatusUpdated() : HasOne {
+        return $this->hasOne(SupportHasRegistration::class)->latest('status_updated_at');
+    }
+
+    function pendingSupport() : HasMany {
+        return $this->hasMany(SupportHasRegistration::class)->whereNull('status_id');
+    }
+
+    function completedSupport() : HasMany {
+        return $this->hasMany(SupportHasRegistration::class)->whereNotNull('status_id');
+    }
+
+    function support() : HasMany {
+        return $this->hasMany(SupportHasRegistration::class);
     }
 }

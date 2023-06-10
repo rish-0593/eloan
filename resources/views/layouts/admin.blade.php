@@ -33,7 +33,7 @@
             <x-admin.navbar />
 
             <!-- Sidebar -->
-            <x-admin.sidebar />
+            <x-admin.sidebar :usersStatus="$usersStatus ?? []"/>
 
             <!-- Main Content -->
             {{ $slot }}

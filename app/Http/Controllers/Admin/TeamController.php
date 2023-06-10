@@ -19,7 +19,10 @@ class TeamController extends Controller
 
     public function getQuery(Request $request)
     {
-        return User::query()->role(self::$role);
+        return User::query()
+                ->role(self::$role)
+                ->with('supportStatusUpdated')
+                ->withCount(['pendingSupport', 'completedSupport', 'support',]);
     }
 
     public function datatable(Request $request)
