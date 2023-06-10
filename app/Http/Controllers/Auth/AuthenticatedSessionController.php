@@ -37,6 +37,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        if(Auth::user()->isImpersonated()){
+            Auth::user()->leaveImpersonation();
+
+            return redirect(RouteServiceProvider::HOME);
+        }
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
