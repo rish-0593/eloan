@@ -7,13 +7,15 @@ use App\Actions\Datatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Admin\StatusResource;
 
 class StatusController extends Controller
 {
     public function getQuery(Request $request)
     {
-        return Status::query();
+        return Status::query()
+                ->where('user_id', Auth::user()->id);
     }
 
     public function datatable(Request $request)
@@ -50,7 +52,8 @@ class StatusController extends Controller
                 'id' => $request->id ?? null,
             ],
             [
-                'name' => $request->name
+                'name' => $request->name,
+                'user_id' => Auth::user()->id
             ]
         );
 

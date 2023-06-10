@@ -12,7 +12,7 @@ class Status extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'name', 'status',
+        'name', 'status', 'user_id',
     ];
 
     public function scopeActive(Builder $query): Builder
