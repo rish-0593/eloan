@@ -2,8 +2,10 @@
 
 namespace App\View\Components;
 
-use Illuminate\View\Component;
+use App\Models\Status;
 use Illuminate\View\View;
+use Illuminate\View\Component;
+use Illuminate\Support\Facades\Auth;
 
 class AdminLayout extends Component
 {
@@ -12,6 +14,8 @@ class AdminLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.admin');
+        $usersStatus = Status::where('user_id', Auth::user()->id)->get();
+
+        return view('layouts.admin', compact('usersStatus'));
     }
 }

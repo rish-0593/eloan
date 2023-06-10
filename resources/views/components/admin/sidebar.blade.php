@@ -75,9 +75,23 @@
 
                 <li class="menu-header">Registrations</li>
                 <li class="dropdown">
-                    <a href="{{ route('admin.registration.index') }}" class="nav-link">
-                        <i data-feather="monitor"></i><span>Registrations</span>
+                    <a href="#" class="menu-toggle nav-link has-dropdown">
+                        <i data-feather="shopping-bag"></i><span>Registrations</span>
                     </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="nav-link" href="{{ route('admin.registration.index') }}"><i data-feather="file">
+                                </i><span>All</span>
+                            </a>
+                        </li>
+                        @foreach ($usersStatus ?? [] as $usersStatusValue)
+                            <li class="">
+                                <a class="nav-link" style="height: 38px;" href="{{ route('admin.registration.status', ['status' => Crypt::encrypt($usersStatusValue->id)]) }}">
+                                    <span style="line-height: 13px;">{{ $usersStatusValue->name }}</span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </li>
             @endcan
 
