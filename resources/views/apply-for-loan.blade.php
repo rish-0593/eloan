@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{ asset('css/frontend/odometer.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/frontend/magnific-popup.css') }}">
         <link rel="stylesheet" href="{{ asset('css/frontend/bootstrap-select.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/datetimepicker/jquery.datetimepicker.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/flaticon.css') }}">
 
         <!-- template styles -->
@@ -308,6 +309,7 @@
         <script src="{{ asset('js/frontend/odometer.min.js') }}"></script>
         <script src="{{ asset('js/frontend/jquery.appear.min.js') }}"></script>
         <script src="{{ asset('js/frontend/wNumb.min.js') }}"></script>
+        <script src="{{ asset('plugins/datetimepicker/jquery.datetimepicker.full.min.js') }}"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
@@ -316,6 +318,11 @@
 
         <script>
             $(document).ready(function() {
+                $('[name="date_of_birth"]').datetimepicker({
+                    timepicker: false,
+                    format: 'd-M-Y',
+                });
+
                 $("#apply-for-loan-module").validate({
                     rules: {
                         employment_status: {
