@@ -58,7 +58,7 @@
                 {
                     name: 'action',
                     data: function ( d ) {
-                        return `<a href="javascript:void(0);"><i class="fas fa-edit" style="font-size: 15px;"></i></a>`;
+                        return `<a href="${d.action.view}" target="_blank"><i class="fas fa-eye" style="font-size: 15px;"></i></a>`;
                     },
                     orderable: false,
                 },

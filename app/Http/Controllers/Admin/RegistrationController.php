@@ -8,6 +8,7 @@ use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\SupportHasRegistration;
 use App\Http\Resources\Admin\RegistrationResource;
 
@@ -71,5 +72,21 @@ class RegistrationController extends Controller
         }
 
         return 1;
+    }
+
+    public function view(Request $request, $id)
+    {
+        $view = Registration::query()
+                ->with([
+                    'product',
+                    'loanDetails' => function($q){
+                        $q->with('gender', 'employmentStatus', 'maritalStatus', 'residentialType');
+                    }
+                ])
+                ->find(Crypt::decrypt($id));
+
+        // return $view;
+
+        return view('admin.registration.view', compact('view'));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin;
 
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class RegistrationResource extends JsonResource
@@ -22,6 +23,15 @@ class RegistrationResource extends JsonResource
             'name' => $this->name,
             'pincode' => $this->pincode,
             'product_id' => $this->product->name,
+            'action' => $this->actionBtns(),
         ];
+    }
+
+    protected function actionBtns() {
+        $btns = [
+            'view' => route('admin.registration.view', ['id' => Crypt::encrypt($this->id)])
+        ];
+
+        return $btns;
     }
 }

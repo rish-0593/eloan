@@ -23,6 +23,11 @@ class Registration extends Model
         return $this->belongsTo(Product::class);
     }
 
+    public function loanDetails()
+    {
+        return $this->hasOne(LoanDetail::class);
+    }
+
     public function supportHasRegistration()
     {
         return $this->hasOne(SupportHasRegistration::class);
