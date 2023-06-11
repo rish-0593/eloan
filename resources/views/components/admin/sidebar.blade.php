@@ -2,7 +2,9 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="javascript:void(0):">
-                <span class="logo-name">{{ config('app_name') }}</span>
+                <span class="logo-name">
+                    <img src="{{ asset('images/frontend/logo-dark.png') }}" alt="logo" style="width: 50%; margin: 5%;">
+                </span>
             </a>
         </div>
         <ul class="sidebar-menu">

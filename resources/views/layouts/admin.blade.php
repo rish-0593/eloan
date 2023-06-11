@@ -7,6 +7,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>{{ $title ?? '' }}</title>
 
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/frontend/favicon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/frontend/favicon-32x32.png') }}">
+
     <link rel="stylesheet" href="{{ asset('css/backend/app.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/backend/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/backend/components.css') }}">
@@ -14,7 +18,6 @@
     <link rel="stylesheet" href="{{ asset('plugins/izitoast/iziToast.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/pretty-checkbox/pretty-checkbox.min.css') }}">
 
-    <link rel='shortcut icon' type='image/x-icon' href='{{ asset('favicon.ico') }}' />
     <script src="{{ asset('js/backend/app.js') }}"></script>
     <link href="{{ asset('css/backend/app.css') }}" rel="stylesheet" />
 

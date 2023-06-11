@@ -13,7 +13,7 @@
             target="_blank"
             class="text-blue-600 hover:underline"
         >
-            SingDilSe
+            Nextera Business Solutions
         </a>
     </p>
 </footer>
