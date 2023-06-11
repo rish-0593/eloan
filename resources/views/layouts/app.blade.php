@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'K UI') }}</title>
+    <title>Money Housing</title>
 
     <!-- Fonts -->
     <link
@@ -23,46 +21,41 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
+<body>
     <div
         x-data="mainState"
-        :class="{ dark: isDarkMode }"
-        x-on:resize.window="handleWindowResize"
+        class="font-sans antialiased"
+        :class="{dark: isDarkMode}"
         x-cloak
     >
-        <div class="min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-eval-0 dark:text-gray-200">
-            <!-- Sidebar -->
-            <x-sidebar.sidebar />
+        <div class="flex flex-col min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-eval-0 dark:text-gray-200">
+            {{ $slot }}
 
-            <!-- Page Wrapper -->
-            <div
-                class="flex flex-col min-h-screen"
-                :class="{
-                    'lg:ml-64': isSidebarOpen,
-                    'md:ml-16': !isSidebarOpen
-                }"
-                style="transition-property: margin; transition-duration: 150ms;"
-            >
-
-                <!-- Navbar -->
-                <x-navbar />
-
-                <!-- Page Heading -->
-                <header>
-                    <div class="p-4 sm:p-6">
-                        {{ $header }}
-                    </div>
-                </header>
-
-                <!-- Page Content -->
-                <main class="px-4 sm:px-6 flex-1">
-                    {{ $slot }}
-                </main>
-
-                <!-- Page Footer -->
-                <x-footer />
-            </div>
+            <x-footer />
         </div>
+
+        <div class="fixed top-10 right-10">
+            <x-button
+                type="button"
+                icon-only
+                variant="secondary"
+                sr-text="Toggle dark mode"
+                x-on:click="toggleTheme"
+            >
+                <x-heroicon-o-moon
+                    x-show="!isDarkMode"
+                    aria-hidden="true"
+                    class="w-6 h-6"
+                />
+
+                <x-heroicon-o-sun
+                    x-show="isDarkMode"
+                    aria-hidden="true"
+                    class="w-6 h-6"
+                />
+            </x-button>
+        </div>
+    </body>
     </div>
 </body>
 </html>
