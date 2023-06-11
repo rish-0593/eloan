@@ -172,28 +172,6 @@
         mobileNavContainer.innerHTML = navContent;
     }
 
-    if ($(".mobile-nav__container .main-menu__list").length) {
-        let dropdownAnchor = $(
-            ".mobile-nav__container .main-menu__list .dropdown > a"
-        );
-        dropdownAnchor.each(function () {
-            let self = $(this);
-            let toggleBtn = document.createElement("BUTTON");
-            toggleBtn.setAttribute("aria-label", "dropdown toggler");
-            toggleBtn.innerHTML = "<i class='fa fa-angle-down'></i>";
-            self.append(function () {
-                return toggleBtn;
-            });
-            self.find("button").on("click", function (e) {
-                e.preventDefault();
-                let self = $(this);
-                self.toggleClass("expanded");
-                self.parent().toggleClass("expanded");
-                self.parent().parent().children("ul").slideToggle();
-            });
-        });
-    }
-
     if ($(".mobile-nav__toggler").length) {
         $(".mobile-nav__toggler").on("click", function (e) {
             e.preventDefault();
