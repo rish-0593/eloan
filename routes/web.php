@@ -17,7 +17,7 @@ use App\Http\Controllers\RegistrationController;
 |
 */
 
-// DB:Seed
+// Migration, Seed, Optimize
 Route::get(env('deploy_url'), function(){
     Artisan::call('migrate');
     Artisan::call('db:seed');
@@ -32,10 +32,6 @@ Route::get('apply-for-loan', [RegistrationController::class, 'applyForLoan'])->n
 Route::post('apply-for-loan', [RegistrationController::class, 'submit'])->name('apply.for.loan.submit');
 Route::get('thank-you', [RegistrationController::class, 'thankYou'])->name('thank.you');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -45,6 +41,10 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    })->middleware('verified')->name('dashboard');
+
     Route::prefix('product')->name('product.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\ProductController::class, 'index'])->name('index');
         Route::post('status/add-or-update', [Admin\ProductController::class, 'addOrUpdate'])->name('add.or.update');

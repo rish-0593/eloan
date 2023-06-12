@@ -66,8 +66,13 @@ class RegistrationController extends Controller
 
         $users = User::active()->role('support')->get();
         $statuses = Status::active()->get();
+        $status = null;
 
-        return view('admin.registration.index', compact('users', 'statuses'));
+        if(!blank($request->status)){
+            $status = Status::find(Crypt::decrypt($request->status))->name;
+        }
+
+        return view('admin.registration.index', compact('users', 'statuses', 'status'));
     }
 
     public function assignToUser(Request $request)

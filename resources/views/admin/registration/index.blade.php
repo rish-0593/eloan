@@ -7,7 +7,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ __('Registrations') }}</h4>
+                            <h4>
+                                {{ __('Registrations') }}
+                                @isset($status)
+                                    ({{ $status }})
+                                @endisset
+                            </h4>
                             <div class="card-header-form">
                             </div>
                         </div>
