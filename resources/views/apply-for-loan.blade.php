@@ -50,7 +50,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Monthly Income*</label>
-                                <input type="number" name="income" class="form-control contact-one__form-input" placeholder="Monthly Income" required="">
+                                <input type="text" name="income" id="income" minlength="1" pattern="[3-9]{10}" maxlength="10" class="form-control contact-one__form-input" placeholder="Monthly Income" required="">
                             </div>
                         </div>
 
@@ -120,11 +120,36 @@
     </section>
 
     <x-slot name="script">
+        <script type="text/javascript">
+            // Restricts input for the given textbox to the given inputFilter function.
+            function setInputFilter(textbox, inputFilter) {
+                ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+                    textbox.addEventListener(event, function() {
+                        if (inputFilter(this.value)) {
+                            this.oldValue = this.value;
+                            this.oldSelectionStart = this.selectionStart;
+                            this.oldSelectionEnd = this.selectionEnd;
+                        } else if (this.hasOwnProperty("oldValue")) {
+                            this.value = this.oldValue;
+                            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                        } else {
+                            this.value = "";
+                        }
+                    });
+                });
+            }
+
+            setInputFilter(document.getElementById("income"), function(value) {
+                return /^\d*$/.test(value);
+            });
+        </script>
+
         <script>
             $(document).ready(function() {
                 $('[name="date_of_birth"]').datetimepicker({
                     timepicker: false,
                     format: 'd-M-Y',
+                    maxDate: 0
                 });
 
                 $("#apply-for-loan-module").validate({
