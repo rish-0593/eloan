@@ -31,8 +31,8 @@
             <div class="dropdown-menu dropdown-menu-right pullDown">
                 <div class="dropdown-title"><em class="user-name">{{ Auth::user()->name }}</em></div>
 
-                <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
+                <a href="{{ route('admin.profile.index') }}" class="dropdown-item has-icon">
+                    <i class="fas fa-user"></i> Profile
                 </a>
 
                 <form method="POST" action="{{ route('logout') }}">

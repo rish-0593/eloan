@@ -32,18 +32,15 @@ Route::get('apply-for-loan', [RegistrationController::class, 'applyForLoan'])->n
 Route::post('apply-for-loan', [RegistrationController::class, 'submit'])->name('apply.for.loan.submit');
 Route::get('thank-you', [RegistrationController::class, 'thankYou'])->name('thank.you');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-
-
-Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('dashboard', function () {
         return view('dashboard');
-    })->middleware('verified')->name('dashboard');
+    })->name('dashboard');
+
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [Admin\ProfileController::class, 'index'])->name('index');
+        Route::post('update', [Admin\ProfileController::class, 'update'])->name('update');
+    });
 
     Route::prefix('product')->name('product.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\ProductController::class, 'index'])->name('index');
