@@ -1,4 +1,6 @@
 <x-admin-layout>
+    <x-slot name="title">{{ __('Profile') }}</x-slot>
+
     <div class="main-content">
         <section class="section">
             <div class="section-body">
