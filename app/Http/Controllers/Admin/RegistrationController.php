@@ -16,21 +16,37 @@ use Carbon\Carbon;
 
 class RegistrationController extends Controller
 {
+    protected static $requestType;
+
     public function getQuery(Request $request)
     {
         $user = Auth::user();
 
         return Registration::query()
-            ->with('supportHasRegistration')
-            ->when($user->can('admin'), function($q){
-                $q->doesntHave('supportHasRegistration');
+            ->with('supportHasRegistration.user')
+            ->when(self::$requestType == 'all', function($q) use ($request) {
+                $q->when(!blank($assign_to = $request->assign_to), function($q) use($assign_to) {
+                    $q->whereRelation('supportHasRegistration', 'user_id', $assign_to);
+                })
+                ->when(!blank($registration_status = $request->registration_status), function($q) use($registration_status){
+                    if($registration_status == 'completed'){
+                        $q->has('loanDetails');
+                    }
+                    else{
+                        $q->doesntHave('loanDetails');
+                    }
+                });
             }, function($q) use ($user, $request) {
-                $q->whereHas('supportHasRegistration', function($q) use ($user, $request) {
-                    $q->where('user_id', $user->id)
-                    ->when(!blank($status = $request->status), function($q) use ($status) {
-                        $q->where('status_id', Crypt::decrypt($status));
-                    }, function($q) {
-                        $q->whereNull('status_id');
+                $q->when($user->can('admin'), function($q){
+                    $q->doesntHave('supportHasRegistration');
+                }, function($q) use ($user, $request) {
+                    $q->whereHas('supportHasRegistration', function($q) use ($user, $request) {
+                        $q->where('user_id', $user->id)
+                        ->when(!blank($status = $request->status), function($q) use ($status) {
+                            $q->where('status_id', Crypt::decrypt($status));
+                        }, function($q) {
+                            $q->whereNull('status_id');
+                        });
                     });
                 });
             })
@@ -73,6 +89,19 @@ class RegistrationController extends Controller
         }
 
         return view('admin.registration.index', compact('users', 'statuses', 'status'));
+    }
+
+    public function all(Request $request)
+    {
+        if($request->ajax()){
+            self::$requestType = 'all';
+            return $this->datatable($request);
+        }
+
+        $users = User::active()->role('support')->get();
+        $statuses = Status::active()->get();
+
+        return view('admin.registration.all', compact('users', 'statuses'));
     }
 
     public function assignToUser(Request $request)

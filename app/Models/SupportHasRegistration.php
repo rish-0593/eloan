@@ -15,4 +15,9 @@ class SupportHasRegistration extends Model
         'status_id',
         'status_updated_at',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

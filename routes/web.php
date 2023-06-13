@@ -94,6 +94,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     Route::prefix('registration')->name('registration.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\RegistrationController::class, 'index'])->name('index');
+        Route::match(['get', 'post'], 'all', [Admin\RegistrationController::class, 'all'])->name('all');
         Route::get('view/{id}', [Admin\RegistrationController::class, 'view'])->name('view');
         Route::post('assign-to-user', [Admin\RegistrationController::class, 'assignToUser'])->name('assign.to.user');
         Route::post('assign-status', [Admin\RegistrationController::class, 'assignStatus'])->name('assign.status');

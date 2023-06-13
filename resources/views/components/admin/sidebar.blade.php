@@ -29,6 +29,11 @@
                         <i class="fas fa-th"></i><span>Registrations</span>
                     </a>
                 </li>
+                <li class="dropdown {{ Route::is('admin.registration.all') ? 'active' : '' }}">
+                    <a href="{{ route('admin.registration.all') }}" class="nav-link">
+                        <i class="fas fa-th"></i><span>All Registrations</span>
+                    </a>
+                </li>
 
                 <li class="menu-header">Others</li>
                 <li class="dropdown {{ Route::is('admin.product.index') ? 'active' : '' }}">

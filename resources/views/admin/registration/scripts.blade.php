@@ -71,5 +71,10 @@
                 }
             });
         }
+
+        // filters
+        $(document).on('change', '[filter-data]', function(){
+            datatable.draw();
+        });
     });
 </script>
