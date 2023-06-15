@@ -33,9 +33,9 @@ Route::post('apply-for-loan', [RegistrationController::class, 'submit'])->name('
 Route::get('thank-you', [RegistrationController::class, 'thankYou'])->name('thank.you');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        Route::get('/', [Admin\DashboardController::class, 'index'])->name('index');
+    });
 
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [Admin\ProfileController::class, 'index'])->name('index');

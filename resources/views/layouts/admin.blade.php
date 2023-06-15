@@ -53,6 +53,7 @@
     <script src="{{ asset('plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('plugins/izitoast/iziToast.min.js') }}"></script>
+    <script src="{{ asset('plugins/apexcharts/apexcharts.min.js') }}"></script>
 
     <script type="text/javascript">
         $.ajaxSetup({

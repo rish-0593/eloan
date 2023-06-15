@@ -9,8 +9,8 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Main</li>
-            <li class="dropdown {{ Route::is('admin.dashboard') ? 'active' : '' }}">
-                <a href="{{ route('admin.dashboard') }}" class="nav-link">
+            <li class="dropdown {{ Route::is('admin.dashboard.index') ? 'active' : '' }}">
+                <a href="{{ route('admin.dashboard.index') }}" class="nav-link">
                     <i class="fas fa-desktop"></i><span>Dashboard</span>
                 </a>
             </li>
