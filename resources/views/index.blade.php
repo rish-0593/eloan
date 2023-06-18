@@ -71,7 +71,7 @@
                                                         data-type="button" data-color="rgba(255,255,255,1)"
                                                         data-xy="xo:15px,15px,15px,13px;yo:434px,434px,359px,305px;"
                                                         data-text="s:12,12,12,10;l:24,24,24,22;ls:0px,0px,0,0;fw:800,800,800,700;a:inherit;"
-                                                        data-actions='o:click;a:simplelink;target:https://_blank;url:contact-us/;'
+                                                        data-actions='o:click;a:simplelink;target:_self;url:javascript:void(0);;'
                                                         data-rsp_bd="off"
                                                         data-padding="t:13,13,10,6;r:38,38,30,18;b:13,13,10,6;l:38,38,30,18;"
                                                         data-border="bor:2px,2px,2px,2px;" data-frame_0="y:50px;"
@@ -166,7 +166,7 @@
                                                         data-type="button" data-color="rgba(255,255,255,1)"
                                                         data-xy="xo:20px,20px,15px,14px;yo:406px,406px,292px,288px;"
                                                         data-text="s:12,12,12,10;l:24,24,24,22;ls:0px,0px,0,0;fw:800,800,800,700;a:inherit;"
-                                                        data-actions='o:click;a:simplelink;target:_self;url:#;'
+                                                        data-actions='o:click;a:simplelink;target:_self;url:javascript:void(0);'
                                                         data-rsp_bd="off"
                                                         data-padding="t:13,13,10,6;r:38,38,30,18;b:13,13,10,6;l:38,38,30,18;"
                                                         data-border="bor:2px,2px,2px,2px;" data-frame_0="y:50px;"
@@ -259,7 +259,7 @@
                                                         data-type="button" data-color="rgba(255,255,255,1)"
                                                         data-xy="xo:14px,14px,12px,14px;yo:478px,478px,397px,348px;"
                                                         data-text="s:12,12,12,10;l:24,24,24,22;ls:0px,0px,0,0;fw:800,800,800,700;a:inherit;"
-                                                        data-actions='o:click;a:simplelink;target:_self;url:contact-us/;'
+                                                        data-actions='o:click;a:simplelink;target:_self;url:javascript:void(0);'
                                                         data-rsp_bd="off"
                                                         data-padding="t:13,13,10,6;r:38,38,30,18;b:13,13,10,6;l:38,38,30,18;"
                                                         data-border="bor:2px,2px,2px,2px;" data-frame_0="y:50px;"
@@ -305,12 +305,12 @@
             <section class="wpb_row vc_row-fluid top-70 vc_custom_1686034576262 vc_row-has-fill">
                 <div class="container">
                     <div class="vc_row">
-                        <div class="wpb_column vc_column_container vc_col-sm-3">
+                        <div class="wpb_column vc_column_container vc_col-sm-3 vc_col-xs-6">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="wpb_single_image wpb_content_element vc_align_center">
                                         <figure class="wpb_wrapper vc_figure">
-                                            <a href="https://hvac-care.com/moneyhousing/home-loan/" target="_blank"
+                                            <a href="javascript:void(0);" target="_blank"
                                                 class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey">
                                                 <img width="200" height="200"
                                                     src="{{ asset('guest/img/home-loan-1.jpg') }}"
@@ -325,12 +325,12 @@
                             </div>
                         </div>
 
-                        <div class="wpb_column vc_column_container vc_col-sm-3 vc_col-md-3">
+                        <div class="wpb_column vc_column_container vc_col-sm-3 vc_col-xs-6 vc_col-md-3">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="wpb_single_image wpb_content_element vc_align_center">
                                         <figure class="wpb_wrapper vc_figure">
-                                            <a href="https://hvac-care.com/moneyhousing/loan-against-property/"
+                                            <a href="javascript:void(0);"
                                                 target="_self"
                                                 class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey">
                                                 <img
@@ -347,12 +347,12 @@
                             </div>
                         </div>
 
-                        <div class="wpb_column vc_column_container vc_col-sm-3 vc_col-md-3">
+                        <div class="wpb_column vc_column_container vc_col-sm-3 vc_col-xs-6 vc_col-md-3">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="wpb_single_image wpb_content_element vc_align_center">
                                         <figure class="wpb_wrapper vc_figure">
-                                            <a href="https://hvac-care.com/moneyhousing/personal-loan"
+                                            <a href="javascript:void(0);"
                                                 target="_self"
                                                 class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey">
                                                 <img
@@ -369,12 +369,12 @@
                             </div>
                         </div>
 
-                        <div class="wpb_column vc_column_container vc_col-sm-3 vc_col-md-3">
+                        <div class="wpb_column vc_column_container vc_col-sm-3 vc_col-xs-6 vc_col-md-3">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="wpb_single_image wpb_content_element vc_align_center">
                                         <figure class="wpb_wrapper vc_figure">
-                                            <a href="https://hvac-care.com/moneyhousing/business-loan/"
+                                            <a href="javascript:void(0);"
                                                 target="_self"
                                                 class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey">
                                                 <img
@@ -394,6 +394,113 @@
                 </div>
             </section>
 
+            <section class="wpb_row vc_row-fluid section-padd bg-second vc_custom_1554172062065 vc_row-has-fill">
+                <div class="container">
+                    <div class="vc_row">
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner">
+                                <div class="wpb_wrapper">
+                                    <h2 style="color: #ffffff;text-align: left"
+                                        class="vc_custom_heading vc_custom_1686453095663">Request a Free Call Back
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner">
+                                <div class="wpb_wrapper">
+                                    <div class="wpcf7 no-js" id="wpcf7-f2090-p1530-o1" lang="en-US" dir="ltr">
+                                        <div class="screen-reader-response">
+                                            <p role="status" aria-live="polite" aria-atomic="true"></p>
+                                            <ul></ul>
+                                        </div>
+                                        <form method="POST" action="{{ route('registration') }}" id="loan-module"
+                                             class="wpcf7-form init" aria-label="Contact form"
+                                            novalidate="novalidate" data-status="init">
+                                            @csrf
+                                            <div class="scf_o">
+                                                <div class="scf_row">
+                                                    <div class="fld_o">
+                                                        <p>
+                                                            <span class="wpcf7-form-control-wrap" data-name="product">
+                                                                <label>Select Product</label>
+                                                                <select name="product" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" required="">
+                                                                    @foreach ($products ?? [] as $product)
+                                                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="fld_o">
+                                                        <p>
+                                                            <span class="wpcf7-form-control-wrap" data-name="name">
+                                                                <label>Name</label>
+                                                                <input type="text" name="name" id="name" maxlength="100" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Name" required="">
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="scf_row">
+                                                    <div class="fld_o">
+                                                        <p>
+                                                            <span class="wpcf7-form-control-wrap" data-name="mobile">
+                                                                <label>Mobile Number*</label>
+                                                                <input type="text" name="mobile" id="mobile" minlength="10" pattern="[3-9]{10}" maxlength="10" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Mobile Number" required="">
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="fld_o">
+                                                        <p>
+                                                            <span class="wpcf7-form-control-wrap" data-name="city">
+                                                                <label>City*</label>
+                                                                <input type="text" name="city" id="city" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Your City" required="">
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="scf_row">
+                                                    <div class="fld_o">
+                                                        <p>
+                                                            <span class="wpcf7-form-control-wrap" data-name="pincode">
+                                                                <label>Pincode*</label>
+                                                                <input type="text" name="pincode" id="pincode" minlength="6" pattern="[3-9]{10}" maxlength="6" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Pincode" required="">
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="fld_o">
+                                                        <p>
+                                                            <span class="wpcf7-form-control-wrap" data-name="amount">
+                                                                <label>Loan Amount*</label>
+                                                                <input type="text" name="amount" id="amount" minlength="5" pattern="[3-9]{10}" maxlength="10" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Loan Amount" required="">
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="scf_row">
+                                                    <p>
+                                                        <input class="wpcf7-form-control has-spinner wpcf7-submit" type="submit" value="Apply For Loan" />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <p style="display: none !important;"><label>&#916;<textarea
+                                                        name="_wpcf7_ak_hp_textarea" cols="45" rows="8"
+                                                        maxlength="100"></textarea></label><input type="hidden"
+                                                    id="ak_js_1" name="_wpcf7_ak_js" value="186" />
+                                                <script>
+                                                    document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );
+                                                </script>
+                                            </p>
+                                            <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="wpb_row vc_row-fluid section-padd-bot vc_custom_1555473632131 vc_row-has-fill vc_row-o-equal-height vc_row-o-content-middle vc_row-flex">
                 <div class="container">
                     <div class="vc_row">
@@ -405,7 +512,7 @@
                                         <h2 class="section-title">Our Mission & Values</h2>
                                     </div>
 
-                                    <div class="wpb_text_column wpb_content_element  vc_custom_1686452012679">
+                                    <div class="wpb_text_column wpb_content_element">
                                         <div class="wpb_wrapper">
                                             <p>
                                                 Welcome to Money Housing, your trusted partner in achieving your
@@ -600,113 +707,6 @@
                                             <h4>99. 5 %</h4>
                                             <p>Success Rate</p>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="wpb_row vc_row-fluid section-padd bg-second vc_custom_1554172062065 vc_row-has-fill">
-                <div class="container">
-                    <div class="vc_row">
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class="vc_column-inner">
-                                <div class="wpb_wrapper">
-                                    <h2 style="color: #ffffff;text-align: left"
-                                        class="vc_custom_heading vc_custom_1686453095663">Request a Free Call Back
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class="vc_column-inner">
-                                <div class="wpb_wrapper">
-                                    <div class="wpcf7 no-js" id="wpcf7-f2090-p1530-o1" lang="en-US" dir="ltr">
-                                        <div class="screen-reader-response">
-                                            <p role="status" aria-live="polite" aria-atomic="true"></p>
-                                            <ul></ul>
-                                        </div>
-                                        <form method="POST" action="{{ route('registration') }}" id="loan-module"
-                                             class="wpcf7-form init" aria-label="Contact form"
-                                            novalidate="novalidate" data-status="init">
-                                            @csrf
-                                            <div class="scf_o">
-                                                <div class="scf_row">
-                                                    <div class="fld_o">
-                                                        <p>
-                                                            <span class="wpcf7-form-control-wrap" data-name="product">
-                                                                <label>Select Product</label>
-                                                                <select name="product" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" required="">
-                                                                    @foreach ($products ?? [] as $product)
-                                                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="fld_o">
-                                                        <p>
-                                                            <span class="wpcf7-form-control-wrap" data-name="name">
-                                                                <label>Name</label>
-                                                                <input type="text" name="name" id="name" maxlength="100" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Name" required="">
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="fld_o">
-                                                        <p>
-                                                            <span class="wpcf7-form-control-wrap" data-name="mobile">
-                                                                <label>Mobile Number*</label>
-                                                                <input type="text" name="mobile" id="mobile" minlength="10" pattern="[3-9]{10}" maxlength="10" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Mobile Number" required="">
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="scf_row">
-                                                    <div class="fld_o">
-                                                        <p>
-                                                            <span class="wpcf7-form-control-wrap" data-name="city">
-                                                                <label>City*</label>
-                                                                <input type="text" name="city" id="city" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Your City" required="">
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="fld_o">
-                                                        <p>
-                                                            <span class="wpcf7-form-control-wrap" data-name="pincode">
-                                                                <label>Pincode*</label>
-                                                                <input type="text" name="pincode" id="pincode" minlength="6" pattern="[3-9]{10}" maxlength="6" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Pincode" required="">
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="scf_row">
-                                                    <div class="fld_o">
-                                                        <p>
-                                                            <span class="wpcf7-form-control-wrap" data-name="amount">
-                                                                <label>Loan Amount*</label>
-                                                                <input type="text" name="amount" id="amount" minlength="5" pattern="[3-9]{10}" maxlength="10" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required fldo" placeholder="Loan Amount" required="">
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="scf_row">
-                                                    <p>
-                                                        <input class="wpcf7-form-control has-spinner wpcf7-submit" type="submit" value="Apply For Loan" />
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <p style="display: none !important;"><label>&#916;<textarea
-                                                        name="_wpcf7_ak_hp_textarea" cols="45" rows="8"
-                                                        maxlength="100"></textarea></label><input type="hidden"
-                                                    id="ak_js_1" name="_wpcf7_ak_js" value="186" />
-                                                <script>
-                                                    document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );
-                                                </script>
-                                            </p>
-                                            <div class="wpcf7-response-output" aria-hidden="true"></div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>

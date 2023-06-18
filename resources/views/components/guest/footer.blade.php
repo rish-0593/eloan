@@ -17,11 +17,11 @@
                             <h4 class="widget-title">Follow us</h4>
                             <div class="textwidget custom-html-widget">
                                 <ul class="foo_socail_sets">
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                    <li><a href="javascript:void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="javascript:void(0);"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="javascript:void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="javascript:void(0);"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="javascript:void(0);"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -37,19 +37,19 @@
                                 <ul id="menu-service-menu" class="menu">
                                     <li id="menu-item-2307"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2307">
-                                        <a href="https://hvac-care.com/moneyhousing/home-loan/">Home Loan</a>
+                                        Home Loan
                                     </li>
                                     <li id="menu-item-2306"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2306">
-                                        <a href="https://hvac-care.com/moneyhousing/loan-against-property/">Loan Against Property</a>
+                                        Loan Against Property
                                     </li>
                                     <li id="menu-item-2387"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2387">
-                                        <a href="https://hvac-care.com/moneyhousing/business-loan/">Business Loan</a>
+                                        Business Loan
                                     </li>
                                     <li id="menu-item-2430"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2430">
-                                        <a href="https://hvac-care.com/moneyhousing/personal-loan/">Personal Loan</a>
+                                        Personal Loan
                                     </li>
                                 </ul>
                             </div>
@@ -65,21 +65,7 @@
                                 <ul id="menu-quick-links" class="menu">
                                     <li id="menu-item-2309"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1530 current_page_item menu-item-2309">
-                                        <a href="https://hvac-care.com/moneyhousing/"
-                                            aria-current="page">Home</a>
-                                    </li>
-                                    <li id="menu-item-2311"
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2311">
-                                        <a href="https://hvac-care.com/moneyhousing/about-us/">About Us</a>
-                                    </li>
-                                    <li id="menu-item-2310"
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-2310">
-                                        <a rel="privacy-policy"
-                                            href="https://hvac-care.com/moneyhousing/privacy-policy/">Privacy Policy</a>
-                                    </li>
-                                    <li id="menu-item-2312"
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2312">
-                                        <a href="https://hvac-care.com/moneyhousing/contact-us/">Contact Us</a>
+                                        <a href="{{ route('index') }}" aria-current="page">Home</a>
                                     </li>
                                 </ul>
                             </div>
@@ -129,7 +115,7 @@
                                 <a class="waicon"
                                     href="https://wa.me/919891845151?text=I'm%20have%20a%20query.%20Please%20reply%20me">
                                     <img style="width:45px"
-                                        src="https://hvac-care.com/moneyhousing/wp-content/uploads/2023/06/whatsapp.png"
+                                        src="{{ asset('guest/img/whatsapp.png') }}"
                                         alt="whatsapp" title />
                                 </a>
                             </div>
@@ -153,20 +139,7 @@
                         <ul id="footer-menu" class="none-style">
                             <li id="menu-item-2313"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1530 current_page_item menu-item-2313">
-                                <a href="https://hvac-care.com/moneyhousing/" aria-current="page">Home</a>
-                            </li>
-                            <li id="menu-item-2315"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-2315">
-                                <a rel="privacy-policy"
-                                    href="https://hvac-care.com/moneyhousing/privacy-policy/">Privacy Policy</a>
-                            </li>
-                            <li id="menu-item-2316"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2316">
-                                <a href="https://hvac-care.com/moneyhousing/about-us/">About Us</a>
-                            </li>
-                            <li id="menu-item-2317"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2317">
-                                <a href="https://hvac-care.com/moneyhousing/contact-us/">Contact Us</a>
+                                <a href="{{ route('index') }}" aria-current="page">Home</a>
                             </li>
                         </ul>
                     </div>
@@ -174,5 +147,5 @@
             </div>
         </div>
     </div>
-    <a id="back-to-top" href="#" class="show"></a>
+    <a id="back-to-top" href="javascript:void(0);" class="show"></a>
 </footer>
