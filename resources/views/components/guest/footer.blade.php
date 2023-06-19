@@ -17,12 +17,9 @@
                             <h4 class="widget-title">Follow us</h4>
                             <div class="textwidget custom-html-widget">
                                 <ul class="foo_socail_sets">
-                                    <li><a href="javascript:void(0);"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                                    </li>
+                                    @foreach ($socials ?? [] as $social)
+                                        <li><a href="{{ $social->link }}" target="_blank"><i class="{{ $social->icon }}" aria-hidden="true"></i></a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

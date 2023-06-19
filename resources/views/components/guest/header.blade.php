@@ -4,11 +4,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="social-list fleft">
-                        <li><a href="javascript:void(0);" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="javascript:void(0);" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="javascript:void(0);" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="javascript:void(0);" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="javascript:void(0);" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+                        @foreach ($socials ?? [] as $social)
+                            <li><a href="{{ $social->link }}" target="_blank"><i class="{{ $social->icon }}"></i></a></li>
+                        @endforeach
                     </ul>
                     <div class="topbar-text fright">Opening Hours : Monday to Saturday - 8am to 9pm</div>
                 </div>

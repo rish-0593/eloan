@@ -71,6 +71,12 @@
                         <i class="fas fa-home"></i><span>Residential Type</span>
                     </a>
                 </li>
+
+                <li class="dropdown {{ Route::is('admin.social.site.index') ? 'active' : '' }}">
+                    <a href="{{ route('admin.social.site.index') }}" class="nav-link">
+                        <i class="fas fa-link"></i><span>Social Sites</span>
+                    </a>
+                </li>
             @endcan
 
             @can('support')

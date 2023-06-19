@@ -84,6 +84,13 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::post('status/update-status', [Admin\ResidentialTypeController::class, 'updateStatus'])->name('update.status');
     });
 
+    Route::prefix('social-site')->name('social.site.')->group(function () {
+        Route::match(['get', 'post'], '/', [Admin\SocialSiteController::class, 'index'])->name('index');
+        Route::post('status/add-or-update', [Admin\SocialSiteController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('status/trash', [Admin\SocialSiteController::class, 'trash'])->name('trash');
+        Route::post('status/update-status', [Admin\SocialSiteController::class, 'updateStatus'])->name('update.status');
+    });
+
     Route::prefix('team')->name('team.')->group(function () {
         Route::match(['get', 'post'], '{role}', [Admin\TeamController::class, 'index'])->name('index');
         Route::post('{role}/add-or-update', [Admin\TeamController::class, 'addOrUpdate'])->name('add.or.update');
