@@ -17,7 +17,7 @@
     </div>
 
     <div class="main-header md-hidden sm-hidden">
-        <div class="main-header-top">
+        <div class="main-header-top" {{-- main-header-bottom --}}>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -47,26 +47,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="main-header-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="header-mainnav">
-                            <div id="site-navigation" class="main-navigation fleft">
-                                <ul id="primary-menu" class="menu">
-                                    <li id="menu-item-2017"
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1530 current_page_item menu-item-2017">
-                                        <a title="Home" href="{{ route('index') }}"
-                                            aria-current="page">Home</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="header_mobile">
@@ -77,19 +57,6 @@
                         src="{{ asset('guest/img/cropped-cropped-Blue-With-Sparkles-Cleaning-Service-Logo-1-3.png') }}"
                         alt="Money Housing" />
                 </a>
-            </div>
-            <div id="mmenu_toggle">
-                <button></button>
-            </div>
-        </div>
-
-        <div class="mmenu_wrapper">
-            <div class="mobile_nav collapse">
-                <ul id="menu-main-menu" class="mobile_mainmenu">
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1530 current_page_item menu-item-2017">
-                        <a title="Home" href="{{ route('index') }}" aria-current="page">Home</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
