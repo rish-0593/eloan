@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Carbon\Carbon;
+use App\Models\User;
 use Illuminate\Support\Arr;
 use App\Models\Registration;
 use Illuminate\Http\Request;
@@ -15,6 +16,10 @@ class DashboardController extends Controller
     public function index() : View {
         $series = [];
         $categories = [];
+        $today = 0;
+        $month = 0;
+        $year = 0;
+        $team = null;
         $user = auth()->user();
         $now = Carbon::now();
 
@@ -22,22 +27,19 @@ class DashboardController extends Controller
             $q->whereRelation('supportHasRegistration', 'user_id', $user->id);
         };
 
-        $today = Registration::query()
-                    ->whereDate('created_at', $now)
-                    ->when($user->can('support'), $filter)
-                    ->count();
-
-        $month = Registration::query()
-                    ->whereMonth('created_at', $now)
-                    ->when($user->can('support'), $filter)
-                    ->count();
-
-        $year = Registration::query()
-                    ->whereYear('created_at', $now)
-                    ->when($user->can('support'), $filter)
-                    ->count();
-
         if($user->can('admin')){
+            $today = Registration::query()
+                        ->whereDate('created_at', $now)
+                        ->count();
+
+            $month = Registration::query()
+                        ->whereMonth('created_at', $now)
+                        ->count();
+
+            $year = Registration::query()
+                        ->whereYear('created_at', $now)
+                        ->count();
+
             $days = $this->getAllDays();
 
             $data = Registration::query()
@@ -55,7 +57,14 @@ class DashboardController extends Controller
             $categories = array_keys($resp);
         }
 
-        return view('admin.dashboard.index', compact('series', 'categories', 'today', 'month', 'year'));
+        if($user->can('support')){
+            $team = User::query()
+                    ->where('id', $user->id)
+                    ->withCount(['pendingSupport', 'completedSupport', 'support',])
+                    ->first();
+        }
+
+        return view('admin.dashboard.index', compact('series', 'categories', 'today', 'month', 'year', 'team'));
     }
 
     public function getAllDays(){

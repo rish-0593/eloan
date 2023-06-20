@@ -30,15 +30,15 @@
                                 @can('support')
                                     <div class="row text-center my-4">
                                         <div class="col-4">
-                                            <h5 class="font-20 m-b-0">{{ $today ?? 0 }}</h5>
+                                            <h5 class="font-20 m-b-0">{{ $team->pending_support_count ?? 0 }}</h5>
                                             <p class="text-muted font-18 m-b-0">(No. of Pendings)</p>
                                         </div>
                                         <div class="col-4">
-                                            <h5 class="font-20 m-b-0">{{ $month ?? 0 }}</h5>
+                                            <h5 class="font-20 m-b-0">{{ $team->completed_support_count ?? 0 }}</h5>
                                             <p class="text-muted font-18 m-b-0">(No. of Completed)</p>
                                         </div>
                                         <div class="col-4">
-                                            <h5 class="font-20 m-b-0">{{ $year ?? 0 }}</h5>
+                                            <h5 class="font-20 m-b-0">{{ $team->support_count ?? 0 }}</h5>
                                             <p class="text-muted font-18 m-b-0">(Total Data Assigned)</p>
                                         </div>
                                     </div>
