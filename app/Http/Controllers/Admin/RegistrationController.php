@@ -81,7 +81,7 @@ class RegistrationController extends Controller
         }
 
         $users = User::active()->role('support')->get();
-        $statuses = Status::active()->get();
+        $statuses = Status::auth()->active()->get();
         $status = null;
 
         if(!blank($request->status)){
@@ -99,7 +99,7 @@ class RegistrationController extends Controller
         }
 
         $users = User::active()->role('support')->get();
-        $statuses = Status::active()->get();
+        $statuses = Status::auth()->active()->get();
 
         return view('admin.registration.all', compact('users', 'statuses'));
     }

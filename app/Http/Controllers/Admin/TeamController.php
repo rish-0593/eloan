@@ -69,6 +69,13 @@ class TeamController extends Controller
         return true;
     }
 
+    public function trash(Request $request)
+    {
+        User::destroy($request->id);
+
+        return true;
+    }
+
     public function updateStatus(Request $request)
     {
         User::find($request->id)->update([

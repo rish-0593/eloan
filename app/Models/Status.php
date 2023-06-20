@@ -19,4 +19,9 @@ class Status extends Model
     {
         return $query->where('status', 1);
     }
+
+    public function scopeAuth(Builder $query): Builder
+    {
+        return $query->where('user_id', auth()->user()->id);
+    }
 }

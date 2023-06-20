@@ -37,6 +37,7 @@
             .done(function(response) {
                 $('#addOrUpdate').modal('hide');
                 datatable.ajax.reload();
+                $('[reload]').removeClass('d-none');
             })
             .fail(function(error) {
                 console.log( "error" );
@@ -55,6 +56,7 @@
             })
             .done(function(response) {
                 datatable.ajax.reload();
+                $('[reload]').removeClass('d-none');
             })
             .fail(function(error) {
                 console.log( "error" );

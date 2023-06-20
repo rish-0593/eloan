@@ -21,6 +21,23 @@
     <script src="{{ asset('js/backend/app.js') }}"></script>
     <link href="{{ asset('css/backend/app.css') }}" rel="stylesheet" />
 
+    <style>
+        .alert-dismissible .refresh {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.9rem 1.25rem;
+            background-color: transparent;
+            float: right;
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: 0.5;
+        }
+    </style>
+
     {{ $styles ?? '' }}
 </head>
 

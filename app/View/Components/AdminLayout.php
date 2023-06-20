@@ -5,7 +5,6 @@ namespace App\View\Components;
 use App\Models\Status;
 use Illuminate\View\View;
 use Illuminate\View\Component;
-use Illuminate\Support\Facades\Auth;
 
 class AdminLayout extends Component
 {
@@ -14,7 +13,7 @@ class AdminLayout extends Component
      */
     public function render(): View
     {
-        $usersStatus = Status::where('user_id', Auth::user()->id)->get();
+        $usersStatus = Status::auth()->get();
 
         return view('layouts.admin', compact('usersStatus'));
     }

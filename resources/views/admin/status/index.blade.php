@@ -4,6 +4,19 @@
     <div class="main-content">
         <section class="section">
             <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="alert alert-success alert-dismissible d-none" reload>
+                        <div class="alert-body">
+                            <button class="refresh" onclick="window.location.reload()">
+                                <span>Yes</span>
+                            </button>
+                            Apply your changes!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">

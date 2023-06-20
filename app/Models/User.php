@@ -9,15 +9,16 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
 use Lab404\Impersonate\Models\Impersonate;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Lab404\Impersonate\Services\ImpersonateManager;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasRoles, HasApiTokens, HasFactory, Notifiable, Impersonate;
+    use HasRoles, SoftDeletes, HasApiTokens, HasFactory, Notifiable, Impersonate;
 
     /**
      * The attributes that are mass assignable.

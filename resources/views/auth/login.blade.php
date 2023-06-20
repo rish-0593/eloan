@@ -26,7 +26,7 @@
                             withicon
                             id="email"
                             class="block w-full"
-                            type="email"
+                            type="text"
                             name="email"
                             :value="old('email')"
                             placeholder="{{ __('Email') }}"

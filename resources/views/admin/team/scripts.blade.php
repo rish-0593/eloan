@@ -43,6 +43,26 @@
             });
         });
 
+        $(document).on('click', '[data-trash]', function(){
+            let __id = $(this).attr('data-trash');
+
+            if(confirm('Are you sure you want to delete this?')) {
+                $.ajax({
+                    url: trash_url,
+                    method: "POST",
+                    data: {
+                        id: __id,
+                    },
+                })
+                .done(function(response) {
+                    datatable.ajax.reload();
+                })
+                .fail(function(error) {
+                    console.log( "error" );
+                });
+            }
+        });
+
         $(document).on('click', '[data-status]', function(){
             let __id = $(this).data('modal-id');
 

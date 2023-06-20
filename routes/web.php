@@ -44,56 +44,57 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     Route::prefix('product')->name('product.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\ProductController::class, 'index'])->name('index');
-        Route::post('status/add-or-update', [Admin\ProductController::class, 'addOrUpdate'])->name('add.or.update');
-        Route::post('status/trash', [Admin\ProductController::class, 'trash'])->name('trash');
-        Route::post('status/update-status', [Admin\ProductController::class, 'updateStatus'])->name('update.status');
+        Route::post('add-or-update', [Admin\ProductController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('trash', [Admin\ProductController::class, 'trash'])->name('trash');
+        Route::post('update-status', [Admin\ProductController::class, 'updateStatus'])->name('update.status');
     });
 
     Route::prefix('city')->name('city.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\CityController::class, 'index'])->name('index');
-        Route::post('status/add-or-update', [Admin\CityController::class, 'addOrUpdate'])->name('add.or.update');
-        Route::post('status/trash', [Admin\CityController::class, 'trash'])->name('trash');
-        Route::post('status/update-status', [Admin\CityController::class, 'updateStatus'])->name('update.status');
+        Route::post('add-or-update', [Admin\CityController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('trash', [Admin\CityController::class, 'trash'])->name('trash');
+        Route::post('update-status', [Admin\CityController::class, 'updateStatus'])->name('update.status');
     });
 
     Route::prefix('employment-status')->name('employment.status.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\EmploymentStatusController::class, 'index'])->name('index');
-        Route::post('status/add-or-update', [Admin\EmploymentStatusController::class, 'addOrUpdate'])->name('add.or.update');
-        Route::post('status/trash', [Admin\EmploymentStatusController::class, 'trash'])->name('trash');
-        Route::post('status/update-status', [Admin\EmploymentStatusController::class, 'updateStatus'])->name('update.status');
+        Route::post('add-or-update', [Admin\EmploymentStatusController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('trash', [Admin\EmploymentStatusController::class, 'trash'])->name('trash');
+        Route::post('update-status', [Admin\EmploymentStatusController::class, 'updateStatus'])->name('update.status');
     });
 
     Route::prefix('gender')->name('gender.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\GenderController::class, 'index'])->name('index');
-        Route::post('status/add-or-update', [Admin\GenderController::class, 'addOrUpdate'])->name('add.or.update');
-        Route::post('status/trash', [Admin\GenderController::class, 'trash'])->name('trash');
-        Route::post('status/update-status', [Admin\GenderController::class, 'updateStatus'])->name('update.status');
+        Route::post('add-or-update', [Admin\GenderController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('trash', [Admin\GenderController::class, 'trash'])->name('trash');
+        Route::post('update-status', [Admin\GenderController::class, 'updateStatus'])->name('update.status');
     });
 
     Route::prefix('marital-status')->name('marital.status.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\MaritalStatusController::class, 'index'])->name('index');
-        Route::post('status/add-or-update', [Admin\MaritalStatusController::class, 'addOrUpdate'])->name('add.or.update');
-        Route::post('status/trash', [Admin\MaritalStatusController::class, 'trash'])->name('trash');
-        Route::post('status/update-status', [Admin\MaritalStatusController::class, 'updateStatus'])->name('update.status');
+        Route::post('add-or-update', [Admin\MaritalStatusController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('trash', [Admin\MaritalStatusController::class, 'trash'])->name('trash');
+        Route::post('update-status', [Admin\MaritalStatusController::class, 'updateStatus'])->name('update.status');
     });
 
     Route::prefix('residential-type')->name('residential.type.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\ResidentialTypeController::class, 'index'])->name('index');
-        Route::post('status/add-or-update', [Admin\ResidentialTypeController::class, 'addOrUpdate'])->name('add.or.update');
-        Route::post('status/trash', [Admin\ResidentialTypeController::class, 'trash'])->name('trash');
-        Route::post('status/update-status', [Admin\ResidentialTypeController::class, 'updateStatus'])->name('update.status');
+        Route::post('add-or-update', [Admin\ResidentialTypeController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('trash', [Admin\ResidentialTypeController::class, 'trash'])->name('trash');
+        Route::post('update-status', [Admin\ResidentialTypeController::class, 'updateStatus'])->name('update.status');
     });
 
     Route::prefix('social-site')->name('social.site.')->group(function () {
         Route::match(['get', 'post'], '/', [Admin\SocialSiteController::class, 'index'])->name('index');
-        Route::post('status/add-or-update', [Admin\SocialSiteController::class, 'addOrUpdate'])->name('add.or.update');
-        Route::post('status/trash', [Admin\SocialSiteController::class, 'trash'])->name('trash');
-        Route::post('status/update-status', [Admin\SocialSiteController::class, 'updateStatus'])->name('update.status');
+        Route::post('add-or-update', [Admin\SocialSiteController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('trash', [Admin\SocialSiteController::class, 'trash'])->name('trash');
+        Route::post('update-status', [Admin\SocialSiteController::class, 'updateStatus'])->name('update.status');
     });
 
     Route::prefix('team')->name('team.')->group(function () {
         Route::match(['get', 'post'], '{role}', [Admin\TeamController::class, 'index'])->name('index');
         Route::post('{role}/add-or-update', [Admin\TeamController::class, 'addOrUpdate'])->name('add.or.update');
+        Route::post('{role}/trash', [Admin\TeamController::class, 'trash'])->name('trash');
         Route::post('{role}/update-status', [Admin\TeamController::class, 'updateStatus'])->name('update.status');
         Route::post('{role}/update-password', [Admin\TeamController::class, 'updatePassword'])->name('update.password');
         Route::get('{role}/login-by-user', [Admin\TeamController::class, 'loginByUser'])->name('login.by.user');

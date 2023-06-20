@@ -82,6 +82,10 @@
                             <a href="javascript:void(0);" data-login="${ d.id }">
                                 <i class="fas fa-unlock" style="font-size: 15px;"></i>
                             </a>
+
+                            <a href="javascript:void(0);" data-trash="${ d.id }">
+                                <i class="fas fa-trash" style="font-size: 15px;"></i>
+                            </a>
                         `;
 
                         return html;
