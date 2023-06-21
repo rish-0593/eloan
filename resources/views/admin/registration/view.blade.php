@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <x-slot name="title">{{ __('Registrations') }}</x-slot>
+    <x-slot name="title">{{ __('Enquiry') }}</x-slot>
     <x-slot name="styles">
         <style>
             .breadcrumb-item + .breadcrumb-item::before {

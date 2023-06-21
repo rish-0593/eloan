@@ -23,15 +23,15 @@
                     </a>
                 </li>
 
-                <li class="menu-header">Registrations</li>
+                <li class="menu-header">Enquiry</li>
                 <li class="dropdown {{ Route::is('admin.registration.index') ? 'active' : '' }}">
                     <a href="{{ route('admin.registration.index') }}" class="nav-link">
-                        <i class="fas fa-th"></i><span>Registrations</span>
+                        <i class="fas fa-th"></i><span>Enquiry</span>
                     </a>
                 </li>
                 <li class="dropdown {{ Route::is('admin.registration.all') ? 'active' : '' }}">
                     <a href="{{ route('admin.registration.all') }}" class="nav-link">
-                        <i class="fas fa-th"></i><span>All Registrations</span>
+                        <i class="fas fa-th"></i><span>All Enquiry</span>
                     </a>
                 </li>
 
@@ -86,10 +86,10 @@
                     </a>
                 </li>
 
-                <li class="menu-header">Registrations</li>
+                <li class="menu-header">Enquiry</li>
                 <li class="dropdown {{ Str::startsWith(request()->route()->uri(), 'admin/registration') ? 'active' : '' }}">
                     <a href="#" class="menu-toggle nav-link has-dropdown">
-                        <i class="fas fa-th"></i><span>Registrations</span>
+                        <i class="fas fa-th"></i><span>Enquiry</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="{{ Route::is('admin.registration.index') ? 'active' : '' }}">

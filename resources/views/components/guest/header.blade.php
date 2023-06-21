@@ -8,7 +8,7 @@
                             <li><a href="{{ $social->link }}" target="_blank"><i class="{{ $social->icon }}"></i></a></li>
                         @endforeach
                     </ul>
-                    <div class="topbar-text fright">Opening Hours : Monday to Saturday - 8am to 9pm</div>
+                    <div class="topbar-text fright">Working Hours : Mon to Sat - 10 AM to 7 PM</div>
                 </div>
             </div>
         </div>

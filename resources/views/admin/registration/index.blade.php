@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <x-slot name="title">{{ __('Registrations') }}</x-slot>
+    <x-slot name="title">{{ __('Enquiry') }}</x-slot>
 
     <div class="main-content">
         <section class="section">
@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>
-                                {{ __('Registrations') }}
+                                {{ __('Enquiry') }}
                                 @isset($status)
                                     ({{ $status }})
                                 @endisset

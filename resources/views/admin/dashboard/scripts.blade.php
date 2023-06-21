@@ -1,5 +1,4 @@
 <script>
-
     function registrationChart() {
         var options = {
             chart: {
@@ -27,7 +26,7 @@
             },
             series: [
                 {
-                    name: "Registrations",
+                    name: "Enquiry",
                     data: @json($series),
                 }
             ],
@@ -49,7 +48,7 @@
             },
             yaxis: {
                 title: {
-                    text: "Registrations Count"
+                    text: "Enquiry Count"
                 },
                 labels: {
                     style: {

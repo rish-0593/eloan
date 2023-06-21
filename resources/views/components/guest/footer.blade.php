@@ -34,7 +34,7 @@
                                 <ul id="menu-service-menu" class="menu">
                                     <li id="menu-item-2307"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2307">
-                                        Home Loan
+                                        Home Loan Service
                                     </li>
                                     <li id="menu-item-2306"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2306">
