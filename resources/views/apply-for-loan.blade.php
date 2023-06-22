@@ -231,6 +231,6 @@
                     }
                 })
             });
-        </script>>
+        </script>
     </x-slot>
 </x-guest-layout>
