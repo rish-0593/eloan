@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 
 /*
@@ -27,7 +26,7 @@ Route::get(env('deploy_url'), function(){
 });
 
 Route::get('/', [RegistrationController::class, 'index'])->name('index');
-Route::post('/', [RegistrationController::class, 'register'])->name('registration');
+Route::post('enquiry/register', [RegistrationController::class, 'register'])->name('registration');
 Route::get('apply-for-loan', [RegistrationController::class, 'applyForLoan'])->name('apply.for.loan');
 Route::post('apply-for-loan', [RegistrationController::class, 'submit'])->name('apply.for.loan.submit');
 Route::get('thank-you', [RegistrationController::class, 'thankYou'])->name('thank.you');
