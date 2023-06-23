@@ -118,15 +118,6 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <p style="display: none !important;"><label>&#916;<textarea
-                                                        name="_wpcf7_ak_hp_textarea" cols="45" rows="8"
-                                                        maxlength="100"></textarea></label><input type="hidden"
-                                                    id="ak_js_1" name="_wpcf7_ak_js" value="186" />
-                                                <script>
-                                                    document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );
-                                                </script>
-                                            </p>
-                                            <div class="wpcf7-response-output" aria-hidden="true"></div>
                                         </form>
                                     </div>
                                 </div>
@@ -200,6 +191,10 @@
                     timepicker: false,
                     format: 'd-M-Y',
                     maxDate: 0
+                });
+
+                $(document).on('submit', function() {
+                    $('[type="submit"]').prop('disabled', true);
                 });
 
                 $("#apply-for-loan-module").validate({

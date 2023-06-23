@@ -788,14 +788,12 @@
             });
 
             $(document).ready(function() {
-                $("#city").autocomplete({
-                    source: @json($cities ?? [])
+                $(document).on('submit', function() {
+                    $('[type="submit"]').prop('disabled', true);
                 });
 
-                $(document).on('click', '#goto-apply-for-loan', function() {
-                    console.log('Application');
-                    const element = document.getElementById("loan-module");
-                    element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+                $("#city").autocomplete({
+                    source: @json($cities ?? [])
                 });
 
                 $("#loan-module").validate({
