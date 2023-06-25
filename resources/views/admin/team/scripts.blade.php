@@ -85,5 +85,21 @@
             let id = $(this).data('login');
             window.location.href = `${LOGIN_BY_USER_URL}?id=${id}`;
         });
+
+        // filters
+        $(document).on('keyup', 'input', '[filter-search]', function(){
+            if (typeof $ !== "undefined" && $.fn.dataTable) {
+                var all_settings = $($.fn.dataTable.tables()).DataTable().settings();
+                for (var i = 0, settings; (settings = all_settings[i]); ++i) {
+                    if (settings.jqXHR)
+                        settings.jqXHR.abort();
+                }
+            }
+            datatable.draw();
+        });
+
+        $(document).on('change', '[filter-data]', function(){
+            datatable.draw();
+        });
     });
 </script>

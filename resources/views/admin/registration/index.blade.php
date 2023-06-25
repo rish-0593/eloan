@@ -25,7 +25,7 @@
                                         <tr>
                                             <th><input type="checkbox" checkbox-all></th>
                                             <th>{{ __('ID') }}</th>
-                                            <th>{{ __('Name') }}</th>
+                                            <th class="text-center">{{ __('Name') }}</th>
                                             <th>{{ __('Mobile Number') }}</th>
                                             <th>{{ __('City') }}</th>
                                             <th>{{ __('Product') }}</th>
@@ -52,6 +52,7 @@
             const ASSIGN_TO_USER_URL = `{{ route('admin.registration.assign.to.user') }}`;
             const statuses = @json($statuses ?? []);
             const ASSIGN_TO_USER_STATUS_URL = `{{ route('admin.registration.assign.status') }}`;
+            const TRASH_URL = `{{ route('admin.registration.trash') }}`;
         </script>
 
         @includeIf('admin.registration.datatable')

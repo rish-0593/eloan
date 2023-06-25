@@ -10,6 +10,9 @@
                             <h4>{{ __('Support Team') }}</h4>
                             <div class="card-header-form">
                                 <div class="input-group-btn">
+                                    <label>Deleted Users :</label>
+                                    <input type="checkbox" name="filter_trashed" class="mr-5" filter-data>
+
                                     <button type="button" class="btn btn-primary" data-modal-target="#addOrUpdate">Add</button>
                                 </div>
                             </div>

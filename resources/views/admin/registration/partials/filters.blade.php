@@ -2,7 +2,14 @@
     <div class="row">
         <div class="col-4">
             <div class="form-group">
-                <label>Assign To :</label>
+                <label>Search :</label>
+                <input type="search" class="form-control" name="filter_search" placeholder="Search by name, mobile" filter-search>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label>Assigned To :</label>
                 <select name="filter_assign_to" class="form-control" filter-data>
                     <option value="">Select User</option>
                     @foreach ($users ?? [] as $user)

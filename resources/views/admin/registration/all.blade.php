@@ -14,6 +14,8 @@
                                 @endisset
                             </h4>
                             <div class="card-header-form">
+                                <label>Deleted Enquiries :</label>
+                                <input type="checkbox" name="filter_trashed" filter-data>
                             </div>
                         </div>
                         <div class="card-body">
@@ -24,7 +26,7 @@
                                     <thead>
                                         <tr>
                                             <th>{{ __('ID') }}</th>
-                                            <th>{{ __('Name') }}</th>
+                                            <th class="text-center">{{ __('Name') }}</th>
                                             <th>{{ __('Mobile Number') }}</th>
                                             <th>{{ __('City') }}</th>
                                             <th>{{ __('Product') }}</th>
@@ -49,6 +51,7 @@
             const ASSIGN_TO_USER_URL = `{{ route('admin.registration.assign.to.user') }}`;
             const statuses = @json($statuses ?? []);
             const ASSIGN_TO_USER_STATUS_URL = `{{ route('admin.registration.assign.status') }}`;
+            const TRASH_URL = `{{ route('admin.registration.trash') }}`;
         </script>
 
         @includeIf('admin.registration.partials.datatable')

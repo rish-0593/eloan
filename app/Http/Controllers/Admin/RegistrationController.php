@@ -61,13 +61,15 @@ class RegistrationController extends Controller
             return $q->when(!blank($search = $request->search), function($q) use ($search) {
                 $q->where(function($q) use ($search) {
                     $q->where('name', 'LIKE', $search.'%')
-                    ->orWhere('email', 'LIKE', $search.'%')
                     ->orWhere('mobile', 'LIKE', $search.'%');
                 });
+            })
+            ->when(!blank($trashed = $request->trashed) && $trashed == 'true', function($q) {
+                $q->onlyTrashed();
             });
         })->process(function($q, $skip, $take){
             return RegistrationResource::collection(
-                $q->orderByDesc('id')->skip($skip)->take($take)->get()
+                $q->orderByDesc('updated_at')->skip($skip)->take($take)->get()
             );
         });
 
@@ -158,6 +160,13 @@ class RegistrationController extends Controller
                 'status_updated_at' => Carbon::now(),
             ]
         );
+
+        return true;
+    }
+
+    public function trash(Request $request)
+    {
+        Registration::destroy($request->id);
 
         return true;
     }

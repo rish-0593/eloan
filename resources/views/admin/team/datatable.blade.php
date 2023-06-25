@@ -13,10 +13,10 @@
                 url: datatable_url,
                 type: "POST",
                 data: function ( d ) {
-                    let status = $('select[name="filter_status"]').val();
-
                     d._token = "{{ csrf_token() }}";
-                    d.status = status;
+                    d.search = $('input[name="filter_search"]').val();
+                    d.status = $('select[name="filter_status"]').val();
+                    d.trashed = $('input[name="filter_trashed"]').is(":checked");
                 },
             },
             columns: [

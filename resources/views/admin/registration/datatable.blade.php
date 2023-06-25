@@ -14,7 +14,7 @@
                 type: "POST",
                 data: function ( d ) {
                     d._token = "{{ csrf_token() }}";
-                    d.search = '';
+                    d.search = $('input[name="filter_search"]').val();
                     d.status = `{{ request()->status ?? ''}}`;
                 },
             },
@@ -33,7 +33,15 @@
                     orderable: false
                 },
                 {
-                    data: 'name',
+                    name: 'name',
+                    data: function ( d ) {
+                        let html = `
+                            <div class="text-center">${d.name}</div>
+                            <div class="text-center">(<span class="text-muted">${d.updated_at}</span>)</div>
+                        `;
+
+                        return html;
+                    },
                     orderable: false
                 },
                 {
@@ -76,7 +84,19 @@
                 {
                     name: 'action',
                     data: function ( d ) {
-                        return `<a href="${d.action.view}" target="_blank"><i class="fas fa-eye" style="font-size: 15px;"></i></a>`;
+                        let html = `
+                            <a href="${d.action.view}" target="_blank">
+                                <i class="fas fa-eye" style="font-size: 15px;"></i>
+                            </a>
+
+                            @can('admin')
+                                <a href="javascript:void(0);" data-trash="${ d.id }">
+                                    <i class="fas fa-trash" style="font-size: 15px;"></i>
+                                </a>
+                            @endcan
+                        `;
+
+                        return html;
                     },
                     orderable: false,
                 },

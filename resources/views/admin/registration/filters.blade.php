@@ -20,4 +20,13 @@
             </div>
         </div>
     @endcanassign
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Search :</label>
+                <input type="text" class="form-control" name="filter_search" placeholder="Search by name, mobile" filter-search>
+            </div>
+        </div>
+    </div>
 </div>

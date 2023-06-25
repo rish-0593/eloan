@@ -30,7 +30,18 @@ class TeamController extends Controller
         $list = (new Datatable($request))->setQuery(function () use ($request) {
             return $this->getQuery($request);
         })->setFilterQuery(function($q) use ($request) {
-            return $q;
+            return $q->when(!blank($search = $request->search), function($q) use ($search) {
+                $q->where(function($q) use ($search) {
+                    $q->where('name', 'LIKE', $search.'%')
+                    ->orWhere('email', 'LIKE', $search.'%');
+                });
+            })
+            ->when(!blank($status = $request->status), function($q) use ($status){
+                $q->where('status', $status);
+            })
+            ->when(!blank($trashed = $request->trashed) && $trashed == 'true', function($q) {
+                $q->onlyTrashed();
+            });
         })->process(function($q, $skip, $take){
             return TeamResource::collection(
                 $q->orderByDesc('id')

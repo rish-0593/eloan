@@ -2,17 +2,6 @@
     $(document).ready(function () {
         let datatable = _initDatatable();
 
-        $(document).on('keyup', 'input', function(){
-            if (typeof $ !== "undefined" && $.fn.dataTable) {
-                var all_settings = $($.fn.dataTable.tables()).DataTable().settings();
-                for (var i = 0, settings; (settings = all_settings[i]); ++i) {
-                    if (settings.jqXHR)
-                        settings.jqXHR.abort();
-                }
-            }
-            datatable.draw();
-        });
-
         if(typeof ASSIGN_TO_USER_URL != 'undefined'){
             $(document).on('change', '#assign_to', function(){
                 let user_id = $(this).val();
@@ -72,7 +61,38 @@
             });
         }
 
+        $(document).on('click', '[data-trash]', function(){
+            let __id = $(this).attr('data-trash');
+
+            if(confirm('Are you sure you want to delete this?')) {
+                $.ajax({
+                    url: TRASH_URL,
+                    method: "POST",
+                    data: {
+                        id: __id,
+                    },
+                })
+                .done(function(response) {
+                    datatable.ajax.reload();
+                })
+                .fail(function(error) {
+                    console.log( "error" );
+                });
+            }
+        });
+
         // filters
+        $(document).on('keyup', 'input', '[filter-search]', function(){
+            if (typeof $ !== "undefined" && $.fn.dataTable) {
+                var all_settings = $($.fn.dataTable.tables()).DataTable().settings();
+                for (var i = 0, settings; (settings = all_settings[i]); ++i) {
+                    if (settings.jqXHR)
+                        settings.jqXHR.abort();
+                }
+            }
+            datatable.draw();
+        });
+
         $(document).on('change', '[filter-data]', function(){
             datatable.draw();
         });

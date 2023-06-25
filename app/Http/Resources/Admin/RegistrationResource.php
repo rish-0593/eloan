@@ -23,6 +23,8 @@ class RegistrationResource extends JsonResource
             'mobile' => $this->mobile,
             'name' => $this->name,
             'pincode' => $this->pincode,
+            'updated_at' => !blank($this->updated_at) ? Carbon::parse($this->updated_at)->format('d M, Y | h:i A') : '--',
+            'deleted_at' => $this->deleted_at ?? null,
             'product_id' => $this->product->name,
             'status_id' => $this->supportHasRegistration->status_id ?? null,
             'status_updated_at' => !blank($this->supportHasRegistration?->status_updated_at) ? Carbon::parse($this->supportHasRegistration->status_updated_at)->format('d M, Y | h:i A') : '--',

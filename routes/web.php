@@ -106,6 +106,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::post('assign-to-user', [Admin\RegistrationController::class, 'assignToUser'])->name('assign.to.user');
         Route::post('assign-status', [Admin\RegistrationController::class, 'assignStatus'])->name('assign.status');
         Route::get('status/{status}', [Admin\RegistrationController::class, 'index'])->name('status');
+        Route::post('trash', [Admin\RegistrationController::class, 'trash'])->name('trash');
     });
 
     Route::prefix('status')->name('status.')->group(function () {

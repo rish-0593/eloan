@@ -23,10 +23,6 @@ class DashboardController extends Controller
         $user = auth()->user();
         $now = Carbon::now();
 
-        $filter = function ($q) use ($user) {
-            $q->whereRelation('supportHasRegistration', 'user_id', $user->id);
-        };
-
         if($user->can('admin')){
             $today = Registration::query()
                         ->whereDate('created_at', $now)
@@ -43,7 +39,7 @@ class DashboardController extends Controller
             $days = $this->getAllDays();
 
             $data = Registration::query()
-                    ->where('created_at', '>=', $now->subDays(7))
+                    ->whereDate('created_at', '>', now()->subDays(7))
                     ->groupBy('day')
                     ->get([
                         DB::raw('DAYNAME(created_at) as day'),
