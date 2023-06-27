@@ -417,6 +417,7 @@
                                         <form method="POST" action="{{ route('registration') }}" id="loan-module"
                                              class="wpcf7-form init" aria-label="Contact form"
                                             novalidate="novalidate" data-status="init">
+                                            <input type="hidden" name="_r" value="{{ request('_r') ?? 'Self' }}">
                                             @csrf
                                             <div class="scf_o">
                                                 <div class="scf_row">

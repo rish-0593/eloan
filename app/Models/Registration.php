@@ -17,6 +17,7 @@ class Registration extends Model
         'city',
         'pincode',
         'amount',
+        'resource_type',
     ];
 
     public function product()

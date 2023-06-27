@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Gender;
 use App\Models\Product;
@@ -9,9 +10,10 @@ use App\Models\LoanDetail;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Models\MaritalStatus;
+use App\Mail\RegistrationMail;
 use App\Models\ResidentialType;
 use App\Models\EmploymentStatus;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 
 class RegistrationController extends Controller
@@ -36,8 +38,11 @@ class RegistrationController extends Controller
                 'city' => $request->city,
                 'pincode' => $request->pincode,
                 'amount' => $request->amount,
+                'resource_type' => $request->_r,
             ]
         );
+
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new RegistrationMail($request->mobile));
 
         return redirect()->route('apply.for.loan', [
             '_m' => Crypt::encrypt($request->mobile)

@@ -30,6 +30,7 @@
                     data: function ( d ) {
                         let html = `
                             <div class="text-center">${d.name}</div>
+                            <div class="text-center">(<span class="text-muted">${d.resource_type}</span>)</div>
                             <div class="text-center">(<span class="text-muted">${d.updated_at}</span>)</div>
                         `;
 
