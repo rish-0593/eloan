@@ -43,6 +43,8 @@
                 font-size: 15px;
             }
         </style>
+
+        {{ $style ?? ''}}
     </head>
     <body class="home page-template-default page page-id-1530 wpb-js-composer js-comp-ver-6.13.0 vc_responsive">
         <div id="page" class="site">
