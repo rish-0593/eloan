@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
-    'emails' => ['Info@moneyhousing.in', 'agarwal.prateek@moneyhousing.in', 'kumarrishabh050@gmail.com'],
+    'emails' => ['kumarrishabh050@gmail.com'],
 
     /*
     |--------------------------------------------------------------------------
