@@ -42,7 +42,7 @@ class RegistrationController extends Controller
             ]
         );
 
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new RegistrationMail($request->mobile));
+        Mail::to(config('app.emails'))->send(new RegistrationMail($request->mobile));
 
         return redirect()->route('apply.for.loan', [
             '_m' => Crypt::encrypt($request->mobile)
