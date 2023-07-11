@@ -12,14 +12,15 @@
             ajax: {
                 url: DATATABLE_URL,
                 type: "POST",
-                data: function ( d ) {
+                data: function(d) {
                     d._token = "{{ csrf_token() }}";
                     d.search = $('input[name="filter_search"]').val();
-                    d.status = `{{ request()->status ?? ''}}`;
+                    d.product = $('select[name="filter_product"]').val();
+                    d.loan_amount = $('select[name="filter_loan_amount"]').val();
+                    d.status = `{{ request()->status ?? '' }}`;
                 },
             },
-            columns: [
-                {
+            columns: [{
                     name: '',
                     data: function(d) {
                         return `
@@ -34,7 +35,7 @@
                 },
                 {
                     name: 'name',
-                    data: function ( d ) {
+                    data: function(d) {
                         let html = `
                             <div class="text-center">${d.name}</div>
                             <div class="text-center">(<span class="text-muted">${d.resource_type}</span>)</div>
@@ -62,13 +63,22 @@
                     orderable: false,
                 },
                 {
-                    data: 'amount',
+                    name: 'amount',
+                    data: function(d) {
+                        var amount = parseInt(d.amount);
+
+                        let html = `
+                            ₹ ${amount.toLocaleString('en-IN')}
+                        `;
+
+                        return html;
+                    },
                     orderable: false,
                 },
                 @can('support')
                     {
                         name: 'status',
-                        data: function ( d ) {
+                        data: function(d) {
                             let html = `
                                 <select class="form-control" data-assign-status="${d.id}">
                                     <option value="">Select Status</option>
@@ -81,10 +91,9 @@
                         },
                         orderable: false,
                     },
-                @endcan
-                {
+                @endcan {
                     name: 'action',
-                    data: function ( d ) {
+                    data: function(d) {
                         let html = `
                             <a href="${d.action.view}" target="_blank">
                                 <i class="fas fa-eye" style="font-size: 15px;"></i>
@@ -111,7 +120,7 @@
         let options = '';
 
         $.each(statuses, function(index, value) {
-            if(status != value.id){
+            if (status != value.id) {
                 options += `<option value="${value.id}">${value.name}</option>`
             }
         });
