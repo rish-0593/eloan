@@ -48,6 +48,7 @@
                 <select name="filter_loan_amount" id="filter_loan_amount" class="form-control" filter-data>
                     <option value="">Select Amount</option>
                     <option value="0-100000">Less than ₹1,00,000</option>
+                    <option value="200000-500000000000">More than ₹2,00,000</option>
                     <option value="100000-300000">₹1,000,00 - ₹3,00,000</option>
                     <option value="300000-500000">₹3,00,000 - ₹5,00,000</option>
                     <option value="500000-1000000">₹5,00,000 - ₹10,00,000</option>
