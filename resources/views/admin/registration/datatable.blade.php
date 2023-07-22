@@ -15,6 +15,7 @@
                 data: function(d) {
                     d._token = "{{ csrf_token() }}";
                     d.search = $('input[name="filter_search"]').val();
+                    d.city = $('select[name="filter_city"]').val();
                     d.product = $('select[name="filter_product"]').val();
                     d.loan_amount = $('select[name="filter_loan_amount"]').val();
                     d.status = `{{ request()->status ?? '' }}`;

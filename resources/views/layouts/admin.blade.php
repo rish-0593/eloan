@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/backend/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/backend/components.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/izitoast/iziToast.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/pretty-checkbox/pretty-checkbox.min.css') }}">
 
@@ -36,6 +37,10 @@
             text-shadow: 0 1px 0 #fff;
             opacity: 0.5;
         }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 42px;
+        }
     </style>
 
     {{ $styles ?? '' }}
@@ -53,7 +58,7 @@
             <x-admin.navbar />
 
             <!-- Sidebar -->
-            <x-admin.sidebar :usersStatus="$usersStatus ?? []"/>
+            <x-admin.sidebar :usersStatus="$usersStatus ?? []" />
 
             <!-- Main Content -->
             {{ $slot }}
@@ -69,6 +74,7 @@
     <script src="{{ asset('js/backend/scripts.js') }}"></script>
     <script src="{{ asset('plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('plugins/izitoast/iziToast.min.js') }}"></script>
     <script src="{{ asset('plugins/apexcharts/apexcharts.min.js') }}"></script>
 
@@ -80,20 +86,21 @@
         });
 
         $(document).ready(function() {
-            $(document).on('change', '[checkbox-all]', function(){
+            $(document).on('change', '[checkbox-all]', function() {
                 $('#assign_to').val('').trigger('change');
 
                 let checked = this.checked;
 
-                $('input[checkbox-single]').each(function(){
+                $('input[checkbox-single]').each(function() {
                     this.checked = checked;
                 });
             });
 
-            $(document).on('change', 'input[checkbox-single]', function(){
+            $(document).on('change', 'input[checkbox-single]', function() {
                 $('#assign_to').val('').trigger('change');
 
-                let checked = $('input[checkbox-single]:checked').length == $('input[checkbox-single]').length;
+                let checked = $('input[checkbox-single]:checked').length == $('input[checkbox-single]')
+                    .length;
 
                 $('[checkbox-all]').prop('checked', checked);
             });

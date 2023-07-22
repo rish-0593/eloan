@@ -30,7 +30,19 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col">
+            <div class="form-group">
+                <label>City :</label>
+                <select name="filter_city" id="filter_city" class="form-control select2" filter-data>
+                    <option value="">Select City</option>
+                    @foreach ($cities ?? [] as $city)
+                        <option value="{{ $city->name }}">{{ $city->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="col">
             <div class="form-group">
                 <label>Product :</label>
                 <select name="filter_product" id="filter_product" class="form-control" filter-data>
@@ -42,7 +54,7 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col">
             <div class="form-group">
                 <label>Loan Amount :</label>
                 <select name="filter_loan_amount" id="filter_loan_amount" class="form-control" filter-data>

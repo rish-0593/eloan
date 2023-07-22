@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\SupportHasRegistration;
 use App\Http\Resources\Admin\RegistrationResource;
+use App\Models\City;
 
 class RegistrationController extends Controller
 {
@@ -65,6 +66,9 @@ class RegistrationController extends Controller
                     ->orWhere('mobile', 'LIKE', $search.'%');
                 });
             })
+            ->when(!blank($city = $request->city), function($q) use ($city) {
+                $q->where('city', $city);
+            })
             ->when(!blank($product = $request->product), function($q) use ($product) {
                 $q->where('product_id', $product);
             })
@@ -97,13 +101,14 @@ class RegistrationController extends Controller
         $users = User::active()->role('support')->get();
         $products = Product::get();
         $statuses = Status::auth()->active()->get();
+        $cities = City::active()->get();
         $status = null;
 
         if(!blank($request->status)){
             $status = Status::find(Crypt::decrypt($request->status))->name;
         }
 
-        return view('admin.registration.index', compact('users', 'products', 'statuses', 'status'));
+        return view('admin.registration.index', compact('users', 'products', 'statuses', 'cities', 'status'));
     }
 
     public function all(Request $request)
@@ -115,8 +120,9 @@ class RegistrationController extends Controller
 
         $users = User::active()->role('support')->get();
         $statuses = Status::auth()->active()->get();
+        $cities = City::active()->get();
 
-        return view('admin.registration.all', compact('users', 'statuses'));
+        return view('admin.registration.all', compact('users', 'statuses', 'cities'));
     }
 
     public function assignToUser(Request $request)

@@ -12,22 +12,22 @@
             ajax: {
                 url: DATATABLE_URL,
                 type: "POST",
-                data: function ( d ) {
+                data: function(d) {
                     d._token = "{{ csrf_token() }}";
                     d.trashed = $('input[name="filter_trashed"]').is(":checked");
                     d.search = $('input[name="filter_search"]').val();
                     d.assign_to = $('[name="filter_assign_to"]').val();
+                    d.city = $('select[name="filter_city"]').val();
                     d.registration_status = $('[name="filter_registration_status"]').val();
                 },
             },
-            columns: [
-                {
+            columns: [{
                     data: 'id',
                     orderable: false
                 },
                 {
                     name: 'name',
-                    data: function ( d ) {
+                    data: function(d) {
                         let html = `
                             <div class="text-center">${d.name}</div>
                             <div class="text-center">(<span class="text-muted">${d.resource_type}</span>)</div>
@@ -64,14 +64,14 @@
                 },
                 {
                     name: 'action',
-                    data: function ( d ) {
+                    data: function(d) {
                         let html = `
                             <a href="${d.action.view}" target="_blank">
                                 <i class="fas fa-eye" style="font-size: 15px;"></i>
                             </a>
                         `;
 
-                        if(!d.deleted_at){
+                        if (!d.deleted_at) {
                             html += `
                                 @can('admin')
                                     <a href="javascript:void(0);" data-trash="${ d.id }">
