@@ -18,6 +18,7 @@
                     d.search = $('input[name="filter_search"]').val();
                     d.assign_to = $('[name="filter_assign_to"]').val();
                     d.city = $('select[name="filter_city"]').val();
+                    d.date = $('input[name="filter_date"]').val();
                     d.registration_status = $('[name="filter_registration_status"]').val();
                 },
             },

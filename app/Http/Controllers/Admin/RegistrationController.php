@@ -80,6 +80,9 @@ class RegistrationController extends Controller
                     ->where('amount', '<=', (int)$amount[1]);
                 });
             })
+            ->when(!blank($date = $request->date), function($q) use ($date) {
+                $q->whereDate('updated_at', Carbon::parse($date)->format('Y-m-d'));
+            })
             ->when(!blank($trashed = $request->trashed) && $trashed == 'true', function($q) {
                 $q->onlyTrashed();
             });

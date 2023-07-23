@@ -18,6 +18,7 @@
                     d.city = $('select[name="filter_city"]').val();
                     d.product = $('select[name="filter_product"]').val();
                     d.loan_amount = $('select[name="filter_loan_amount"]').val();
+                    d.date = $('input[name="filter_date"]').val();
                     d.status = `{{ request()->status ?? '' }}`;
                 },
             },

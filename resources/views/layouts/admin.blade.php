@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/izitoast/iziToast.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/pretty-checkbox/pretty-checkbox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datetimepicker/jquery.datetimepicker.css') }}">
 
     <script src="{{ asset('js/backend/app.js') }}"></script>
     <link href="{{ asset('css/backend/app.css') }}" rel="stylesheet" />
@@ -76,6 +77,7 @@
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('plugins/izitoast/iziToast.min.js') }}"></script>
+    <script src="{{ asset('plugins/datetimepicker/jquery.datetimepicker.full.min.js') }}"></script>
     <script src="{{ asset('plugins/apexcharts/apexcharts.min.js') }}"></script>
 
     <script type="text/javascript">

@@ -43,4 +43,20 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Date :</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="filter_date" id="datetimepicker" readonly>
+                    <div class="input-group-prepend" style="border: 1px solid #6b7280;">
+                        <button class="btn clear-date">
+                            X
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
