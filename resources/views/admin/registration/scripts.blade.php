@@ -95,6 +95,20 @@
             }
         });
 
+        // Export Data
+        $(document).on('click', '[data-export]', function() {
+            let data = {
+                action: 'export',
+            };
+
+            $('[export]').each(function() {
+                var _s = $(this);
+                data[(_s.attr('name')).replace('filter_', '')] = _s.val() ?? '';
+            });
+
+            window.open(`${DATATABLE_URL}?${$.param(data)}`, '_blank');
+        });
+
         // filters
         $(document).on('keyup', 'input', '[filter-search]', function() {
             if (typeof $ !== "undefined" && $.fn.dataTable) {

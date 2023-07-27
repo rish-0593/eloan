@@ -14,6 +14,9 @@
                                 @endisset
                             </h4>
                             <div class="card-header-form">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary" data-export>Export</button>
+                                </div>
                             </div>
                         </div>
                         <div class="card-body">

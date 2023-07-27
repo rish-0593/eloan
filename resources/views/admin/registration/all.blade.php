@@ -13,6 +13,11 @@
                                     ({{ $status }})
                                 @endisset
                             </h4>
+                            <div class="card-header-form mr-4">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary" data-export>Export</button>
+                                </div>
+                            </div>
                             <div class="card-header-form">
                                 <label>Deleted Enquiries :</label>
                                 <input type="checkbox" name="filter_trashed" filter-data>

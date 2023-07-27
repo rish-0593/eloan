@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use Carbon\Carbon;
+use App\Models\City;
 use App\Models\User;
 use App\Models\Status;
 use App\Models\Product;
 use App\Actions\Datatable;
 use App\Models\Registration;
 use Illuminate\Http\Request;
+use App\Exports\RegistrationsExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\SupportHasRegistration;
 use App\Http\Resources\Admin\RegistrationResource;
-use App\Models\City;
 
 class RegistrationController extends Controller
 {
@@ -55,7 +57,7 @@ class RegistrationController extends Controller
             ->with('product');
     }
 
-    public function datatable(Request $request)
+    public function datatable(Request $request, $isExport = false)
     {
         $list = (new Datatable($request))->setQuery(function () use ($request) {
             return $this->getQuery($request);
@@ -86,9 +88,9 @@ class RegistrationController extends Controller
             ->when(!blank($trashed = $request->trashed) && $trashed == 'true', function($q) {
                 $q->onlyTrashed();
             });
-        })->process(function($q, $skip, $take){
+        })->process(function($q, $skip, $take) use($isExport){
             return RegistrationResource::collection(
-                $q->orderByDesc('updated_at')->skip($skip)->take($take)->get()
+                $q->orderByDesc('updated_at')->skip($skip)->take($isExport ? PHP_INT_MAX : $take)->get()
             );
         });
 
@@ -99,6 +101,11 @@ class RegistrationController extends Controller
     {
         if($request->ajax()){
             return $this->datatable($request);
+        }
+
+        if($request->action == 'export'){
+            $data = $this->datatable($request, true)['data'] ?? [];
+            return Excel::download(new RegistrationsExport($data), 'registration.xlsx');
         }
 
         $users = User::active()->role('support')->get();
@@ -119,6 +126,12 @@ class RegistrationController extends Controller
         if($request->ajax()){
             self::$requestType = 'all';
             return $this->datatable($request);
+        }
+
+        if($request->action == 'export'){
+            self::$requestType = 'all';
+            $data = $this->datatable($request, true)['data'] ?? [];
+            return Excel::download(new RegistrationsExport($data), 'registration.xlsx');
         }
 
         $users = User::active()->role('support')->get();

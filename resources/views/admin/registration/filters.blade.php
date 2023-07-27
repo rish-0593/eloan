@@ -26,14 +26,14 @@
             <div class="form-group">
                 <label>Search :</label>
                 <input type="text" class="form-control" name="filter_search" placeholder="Search by name, mobile"
-                    filter-search>
+                    filter-search export>
             </div>
         </div>
 
         <div class="col">
             <div class="form-group">
                 <label>City :</label>
-                <select name="filter_city" id="filter_city" class="form-control select2" filter-data>
+                <select name="filter_city" id="filter_city" class="form-control select2" filter-data export>
                     <option value="">Select City</option>
                     @foreach ($cities ?? [] as $city)
                         <option value="{{ $city->name }}">{{ $city->name }}</option>
@@ -45,7 +45,7 @@
         <div class="col">
             <div class="form-group">
                 <label>Product :</label>
-                <select name="filter_product" id="filter_product" class="form-control" filter-data>
+                <select name="filter_product" id="filter_product" class="form-control" filter-data export>
                     <option value="">Select Product</option>
                     @foreach ($products ?? [] as $product)
                         <option value="{{ $product->id }}">{{ $product->name }}</option>
@@ -57,7 +57,7 @@
         <div class="col">
             <div class="form-group">
                 <label>Loan Amount :</label>
-                <select name="filter_loan_amount" id="filter_loan_amount" class="form-control" filter-data>
+                <select name="filter_loan_amount" id="filter_loan_amount" class="form-control" filter-data export>
                     <option value="">Select Amount</option>
                     <option value="0-100000">Less than ₹1,00,000</option>
                     <option value="200000-500000000000">More than ₹2,00,000</option>
@@ -77,7 +77,7 @@
             <div class="form-group">
                 <label>Date :</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" name="filter_date" id="datetimepicker" readonly>
+                    <input type="text" class="form-control" name="filter_date" id="datetimepicker" readonly export>
                     <div class="input-group-prepend" style="border: 1px solid #6b7280;">
                         <button class="btn clear-date">
                             X
